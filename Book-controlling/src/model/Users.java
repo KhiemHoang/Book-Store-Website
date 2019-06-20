@@ -13,6 +13,11 @@ public class Users {
 	
 	
 	
+	public Users(String userName, String userEmail) {
+		super();
+		UserName = userName;
+		UserEmail = userEmail;
+	}
 	public Users(String userName, String userPassword, String userEmail, String userAddress) {
 		super();
 		UserName = userName;

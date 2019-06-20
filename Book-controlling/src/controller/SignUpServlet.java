@@ -47,15 +47,30 @@ public class SignUpServlet extends HttpServlet {
 		Users theuser = new Users(username,passwords,email,address);
 		if (abc.Add(theuser) == 0)
 		{
-			System.out.println("FAIL");
-			RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/SignUp.jsp");
-		 	RequetsDispatcherObj.forward(request, response);
+			out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+			out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+			out.println("<script>");
+			out.println("$(document).ready(function(){");
+			out.println("swal ( 'USER IS IN USE' ,  'FAIL !' ,  'error' );");
+			out.println("});");
+			out.println("</script>");
+			RequestDispatcher rd = request.getRequestDispatcher("SignUp.jsp");
+			rd.include(request, response);
 		}
 		else
 		{
-			RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/login.jsp");
-		 	RequetsDispatcherObj.forward(request, response);
-			System.out.println("Success");
+			
+			
+			out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+			out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+			out.println("<script>");
+			out.println("$(document).ready(function(){");
+			out.println("swal ( 'WELCOME NEW USER' ,  'YOU HAVE SUCCESSFULLY SIGN UP !' ,  'success' );");
+			out.println("});");
+			out.println("</script>");
+			
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			rd.include(request, response);
 
 
 		}

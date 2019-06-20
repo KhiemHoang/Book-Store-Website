@@ -15,6 +15,18 @@ public class Book {
 	
 	
 
+	public Book(int bookID, String bookName, int bookPrice, int bookQuantity, String bookSize, String bookType,
+			String bookImg) {
+		super();
+		BookID = bookID;
+		BookName = bookName;
+		BookPrice = bookPrice;
+		BookQuantity = bookQuantity;
+		BookSize = bookSize;
+		BookType = bookType;
+		BookImg = bookImg;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [BookID=" + BookID + ", BookName=" + BookName + ", BookPrice=" + BookPrice + ", BookQuantity="
@@ -33,6 +45,7 @@ public class Book {
 		BookImg2 = bookImg2;
 		BookImg = booImg;
 	}
+	
 
 	public Book(int bookID, String bookName, int bookPrice, int bookQuantity, String bookSize, String bookType,
 			String bookImg1, String bookImg2, String booImg) {

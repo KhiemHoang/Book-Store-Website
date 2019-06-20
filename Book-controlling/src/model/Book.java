@@ -15,7 +15,7 @@ public class Book {
 	
 
 	public Book(int bookID, String bookName, int bookPrice, int bookQuantity, String bookSize, String bookType,
-			String bookImg1, String bookImg2) {
+			String bookImg) {
 		super();
 		BookID = bookID;
 		BookName = bookName;
@@ -23,8 +23,7 @@ public class Book {
 		BookQuantity = bookQuantity;
 		BookSize = bookSize;
 		BookType = bookType;
-		BookImg1 = bookImg1;
-		BookImg2 = bookImg2;
+		BookImg = bookImg;
 	}
 
 	@Override

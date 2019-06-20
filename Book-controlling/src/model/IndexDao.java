@@ -38,11 +38,9 @@ public class IndexDao {
 				 	int bookquantity = myRs.getInt("bookquantity");
 				 	String booksize = myRs.getString("booksize");
 				 	String booktype = myRs.getString("booktype");
-				 	String bookimglink1 = myRs.getString("bookimglink1");
-				 	String bookimglink2 = myRs.getString("bookimglink2");
-				 	Book tempbook = new Book(id,bookname,bookprice,bookquantity,booksize,booktype,bookimglink1,bookimglink2);
+				 	String bookImg = myRs.getString("BookImg");
+				 	Book tempbook = new Book(id,bookname,bookprice,bookquantity,booksize,booktype,bookImg);
 				 	books.add(tempbook);
-
 			 }
 		}
 		finally	 {
@@ -72,7 +70,7 @@ public class IndexDao {
 			 {	 	
 				 	String type = myRs.getString("booktype");
 				 	booktype.add(type);
-				 	System.out.println(type);
+				 
 
 			 }
 		}

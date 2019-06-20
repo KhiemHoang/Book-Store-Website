@@ -51,9 +51,8 @@ public class IndexServlet extends HttpServlet {
 		}
 		
 		
-		/////
-		 //	RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/Index.jsp");
-		 	//RequetsDispatcherObj.forward(request, response);
+		 	RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/Index.jsp");
+		 	RequetsDispatcherObj.forward(request, response);
 	}
 	private void listbook(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List <Book> books = abc.getbook();

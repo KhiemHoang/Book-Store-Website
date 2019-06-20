@@ -8,11 +8,10 @@
 <title>Insert title here</title>
 </head>
 
-<%
-	List<Author> authors = (List<Author>) request.getAttribute("AUTHORS_LIST");
-%>
 
 <body>
-<%= authors %>
+	<div style="width:30%;height:15%;position:absolute;background-color:green">
+		<img src="https://i.imgur.com/Xoj3L28.gif" style="width=100%; height:100%">
+	</div>
 </body>
 </html>

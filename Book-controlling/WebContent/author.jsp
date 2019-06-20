@@ -40,7 +40,7 @@
 		<div id="content">
 			<div class="container">
 				<div class="author-header">
-					<h1>Yans Martel</h1>
+					<h1><%= authorName %></h1>
 				</div>
 				<!-- End author header -->
 

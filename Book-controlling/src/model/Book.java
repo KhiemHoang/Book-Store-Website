@@ -10,6 +10,7 @@ public class Book {
 	private String BookImg1;
 	private String BookImg2;
 	private String BookImg;
+	private String BookLink;
 		
 	
 	
@@ -44,6 +45,23 @@ public class Book {
 		BookImg1 = bookImg1;
 		BookImg2 = bookImg2;
 		BookImg = booImg;
+	}
+	
+	
+
+	public Book(int bookID, String bookName, int bookPrice, int bookQuantity, String bookSize, String bookType,
+			String bookImg1, String bookImg2, String bookImg, String bookLink) {
+		super();
+		BookID = bookID;
+		BookName = bookName;
+		BookPrice = bookPrice;
+		BookQuantity = bookQuantity;
+		BookSize = bookSize;
+		BookType = bookType;
+		BookImg1 = bookImg1;
+		BookImg2 = bookImg2;
+		BookImg = bookImg;
+		BookLink = bookLink;
 	}
 
 	//For author jsp

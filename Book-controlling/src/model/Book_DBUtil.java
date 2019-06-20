@@ -179,6 +179,39 @@ public class Book_DBUtil {
 		}		
 	}
 	
+	//get All book infor
+	public List<Book> getAllInfor() throws Exception{
+		List<Book> books = new ArrayList<>();
+		
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+	
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "SELECT * FROM book_controlling.book"
+					+ " where book_controlling.book.BookID = 1"; //sql query
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
+			while(rss.next())
+			{
+				String Book_Name = rss.getString("BookName");
+				int Book_Price = rss.getInt("BookPrice");
+				String Book_Img = rss.getString("BookImg");
+				
+				
+				Book tempAuthor = new Book(Book_Name, Book_Price, Book_Img);
+				books.add(tempAuthor);
+			}
+			
+			return books;
+		}
+		finally {
+			close(con, stm, rss);
+		}
+	}
+	
 	//Close Connection
 		private void close(Connection con, Statement stm, ResultSet rss) {
 			// TODO Auto-generated method stub

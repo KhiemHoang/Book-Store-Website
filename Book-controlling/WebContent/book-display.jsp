@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<%@ page import="java.util.*, model.*, controller.*"%>   
+<%@ page import="java.util.*, model.*, controller.*"%>
+
 <!DOCTYPE hmtl>
 <hmtl>
 	<head>
@@ -22,66 +22,7 @@
 	</head>
 
 	<body>
-		<div id="header">
-			<div class="container">
-				<div class="row sign-up-bar">
-					<ul class="sign-up">
-						<li><a href="">Sign out</a></li>					
-						<li><a href="">Manage Account</a></li>
-					</ul>
-				</div>
-				<div class="row">
-					<div class="logo">
-						<a href="home-page.html"><img src="assets/image/logo.png"></a>
-					</div>
-				</div>
-				<div class="row">
-					<ul class="menu-bar">
-						<li><a href="home-page.html">Home</a></li>
-						<li class="drop-down">
-							<a href="" class="drop-button">Genres</a>
-								<div class="drop-content">
-									<div class="row">
-										<a href="" class="col-sm">Action</a>
-										<a href="" class="col-sm">Adventure</a>										
-									</div>
-									<div class="row">
-										<a href="" class="col-sm">Children</a>
-										<a href="" class="col-sm">Classic</a>
-									</div>
-									<div class="row">
-										<a href="" class="col-sm">Drama</a>
-										<a href="" class="col-sm">Fairytale</a>											
-									</div>
-									<div class="row">
-										<a href="" class="col-sm">Historical</a>
-										<a href="" class="col-sm">Horror</a>										
-									</div>
-								</div>
-						</li>
-						<li class="drop-down">
-							<a href="" class="drop-button">Services</a>
-							<div class="drop-content">
-									<div class="row">
-										<a href="" class="col-sm">Action</a>
-										<a href="" class="col-sm">Adventure</a>										
-									</div>
-							</div>
-						</li>
-						<li class="drop-down">
-							<a href="">Envents</a>
-							<div class="drop-content">
-								<div class="row">
-									<a href="" class="col-sm">Children's Day</a>										
-								</div>
-							</div> 	 	
-						</li>						
-						<li><a href="">About Us</a></li>
-						<li><a href="">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<jsp:include page="header.jsp"/>
 		<!-- End Header -->
 
 		<div id="content">
@@ -578,80 +519,7 @@
 
 
 
-		<div id="footer">
-			<div class="container">
-				<div class="row footer-header">
-					<div class="col-md-5 text">
-						<h1>Subsribe for Or4nge's lastest news</h1>
-						<p>Don't miss thousands of Or4nge's wonderful books</p>
-					</div>
-					<!-- End text -->
-					<div class="col-md-4 email-box">
-						<input id="input-email-box" type="text" name="email" placeholder="Your Email">
-					</div>
-					<!-- End email-box -->
-					<div class="col-md-2 submit-btn">
-						<button>Submit</button>
-					</div>
-				</div>
-				<!-- End footer-header -->
-
-				<div class="row footer-content">
-					<div class="col-md-3 customer-services">
-						<h1>CUSTOMER SERVICES</h1>
-						<div class="hotline">
-							<a href="">Hotline order: 3004-1975</a><br>
-							<small>(Free, 6a.m-18:00, daily)</small>							
-						</div>
-						<div class="hotline">
-							<a href="">Hotline: 1705-1945</a><br>
-							<small>(1,000VND/min, 6a.m-18:00, daily)</small>							
-						</div>
-						
-					</div>
-					<!-- End customer service -->
-
-					<div class="col-md-3 about-us">
-						<h1>ABOUT US</h1>
-						<a href="">Introduction</a>
-						<a href="">Recruitment</a>
-						<a href="">Payment security policy</a>
-						<a href="">Information security policy</a>
-						<a href="">Resolve complaints policy</a>
-						<a href="">Terms of use</a>
-					</div>
-					<!-- End about us -->
-
-					<div class="col-md-3 payment">
-						<h1>PAYMENT METHODS</h1>
-						<i class="fab fa-cc-visa" title="Visa card"></i>
-						<i class="fab fa-cc-mastercard" title="Master card"></i>
-						<i class="far fa-credit-card" title="Credit card"></i>
-						<i class="far fa-money-bill-alt" title="Cash"></i>
-						<i class="fas fa-university" title="Internet banking"></i>
-						<i class="fas fa-piggy-bank" title="Installment"></i>
-					</div>
-					<!-- End payment -->
-
-					<div class="col-md-3 contact-us">
-						<div class="connect-us">
-							<h1>CONTACT US</h1>
-							<a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
-							<a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
-							<a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-						</div>
-
-						<div class="install">
-							<h1>AVAILABLE ON</h1>
-							<a href="https://play.google.com/store" target="_blank"><i class="fab fa-google-play"></i></a>
-							<a href="https://www.apple.com/ios/app-store/" target="_blank"><i class="fab fa-app-store-ios"></i></a>
-						</div>
-					</div>
-					<!-- End contact us -->
-				</div>
-				<!-- End footer content -->
-			</div>
-		</div>
+		<jsp:include page="footer.jsp"/>
 		<!-- End footer -->
 		<!-- ============================Script===================================== -->
 		<script type="text/javascript" src="assets/js/bootstrap.js"></script>

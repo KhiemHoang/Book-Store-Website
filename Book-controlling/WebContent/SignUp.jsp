@@ -44,19 +44,19 @@
             </h2>
           </div>
           <div class="loginbox">
-        <form action = "SignUpServlet" method = "GET">
+        <form action = "SignUpServlet" method = "POST">
             <p>Username</p>
             <input type="text" name="username" placeholder="Enter Username" required>
             <p>Password</p>
             <input type="password" name="password" placeholder="Enter Password" minlength="6"  required>
             <p>Email</p>
-            <input type="email" name="email" placeholder="Enter Email" required>
+            <input type="text" name="email" placeholder="Enter Email" required>
             <p>Address</p>
             <input type="text" name="address" placeholder="Enter Address" required>
 
             <input type="submit" name="" value="Sign Up">
             <a href="#">Lost your password?</a><br>
-            <a href="#">Sign In</a>
+            <a href="login.jsp">Sign In</a>
         </form>
           </div>
 

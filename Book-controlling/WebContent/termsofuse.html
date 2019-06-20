@@ -1,28 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*, model.*, controller.*"%>
 <!DOCTYPE html>
-<html>	
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="assets/css/login.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="assets/css/termsofuse.css">
 <link rel="stylesheet" type="text/css" href="assets/css/setup.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
 </head>
-<body >
-<body style="background-color:lightpink" onload="myFunction()">
+<body style="background-color:lightpink">
     <div class="navbar">
 
 
-        
+        <div class="search">
+            <form>
+                <input type="text" name="search" placeholder="Search...">
+            </form>
+        </div>
 
         <div>
             <ul>
                 <li><a href="#abc">Help</a></li>
                 <li><a href="#abc">Events</a></li>
+                <li><a href="#abc">HELLO ABC</a></li>
                 <li style="float:left"><a href="#abc" style="font-family:'Times New Roman'">My Book Store</a></li>
+                <li style="float:left"><a href="#abc">Cart</a></li>
             </ul>
         </div>
 
@@ -35,25 +39,29 @@
     </div>
     <div style="width:100%;height:48px"></div>
 
-     <div class="bodypagecontainer">
-           <div class="slgcontainer">
-            <h2 style="color:white;font-family:Karla;padding:40px">
-                LOGIN FORM
+    <div class="bodypagecontainer">
+        <div class="slgcontainer">
+            <h2 style="color:white;font-family:Karla;padding:50px">
+                Complaints policy
             </h2>
-          </div>
-          <div class="loginbox">
-        <form action = "AccountLogin" method = "GET">
-            <p>Username</p>
-            <input type="text" name="username" placeholder="Enter Username" required>
-            <p>Password</p>
-            <input type="password" name="password" placeholder="Enter Password" required>
+        </div>
+        
+        <div id="wordscontainer" >
+            <h1 style="color:#ef7d22;text-align: center;">
+                Terms of use
+            </h1>
+            <br>
+            <h2 style="color:#black;text-align: center;">
+                               Here's our terms of use: <a href="https://legaltemplates.net/wp-content/uploads/2016/09/Terms-of-Use-example-form-950x1300.png"
+                               target="_blank" ><Span style="color:#ef7d22"> Docs </Span><a>
+
+                
+            </h2>
 
 
-            <input type="submit" name="" value="Login">
-            <a href="forgotpwd.html">Lost your password?</a><br>
-            <a href="SignUp.jsp">Don't have an account?</a>
-        </form>
-          </div>
+ 
+        </div>
+
 
     </div>
 
@@ -67,13 +75,19 @@
 
 
 
+
+
+
+
+
+
+
     <div class="footer whiteword">
-        <hr style="position:absolute;color:white;width:100%;height:1px; border: 0 none;background-color: white">        
         <p class="subcribetext">
                 Subcribe to pewdiepie's lastest news
         </p>
         <p class="chance">
-                Don't Miss out ........................................
+                Don't Miss out Cơ hội phát cạc 50k everyday
         </p>
 
 
@@ -155,15 +169,14 @@
         </p>
         <div class="smallcontainer" style="left:78%;top:285PX;">
             <i class="fab fa-google-play fa-4x"></i>
-        </div>
+        </div> 
          <div class="smallcontainer" style="left:85%;top:285PX;">
             <i class="fab fa-app-store-ios fa-4x"></i>
         </div>
 
 
     </div>
-	
-	
+
 
 </body>
 </html>

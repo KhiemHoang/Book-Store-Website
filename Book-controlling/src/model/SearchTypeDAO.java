@@ -10,15 +10,14 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
-public class SearchNameDAO {
+public class SearchTypeDAO {
 	private DataSource dataSource;
 
-	public SearchNameDAO(DataSource theDataSource) {
+	public SearchTypeDAO(DataSource theDataSource) {
 		dataSource = theDataSource;
-		
 	}
 	
-	public List<Book> getbook(String name) throws Exception
+	public List<Book> getbook(String type) throws Exception
 	{
 		
 		List<Book> books = new ArrayList<>();
@@ -28,7 +27,7 @@ public class SearchNameDAO {
 		
 		try {
 			 myConn = dataSource.getConnection();
-			 String sql = "select * from book where bookname like '%"+name+"%'";
+			 String sql = "select * from book where booktype= '"+type+"'";
 			 System.out.println(sql);
 			 myStmt = myConn.createStatement();
 			 myRs = myStmt.executeQuery(sql);
@@ -43,6 +42,7 @@ public class SearchNameDAO {
 				 	String bookImg = myRs.getString("BookImg");
 				 	Book tempbook = new Book(id,bookname,bookprice,bookquantity,booksize,booktype,bookImg);
 				 	books.add(tempbook);
+				 	System.out.println(bookname);
 			 }
 		}
 		finally	 {
@@ -99,5 +99,3 @@ public class SearchNameDAO {
 		return booktype;
 	}
 }
-
-

@@ -89,7 +89,11 @@
 
                 %>
                 <li style="float:left"><a href="#abc" style="font-family:'Times New Roman'">My Book Store</a></li>
-                <li style="float:left"><a href="#abc">Cart</a></li>
+                <%
+            	if(session.getAttribute("username") != null)
+            		System.out.println("<li style=\"float:left\"><a href=\"#abc\">Cart</a></li>");
+                %>
+                
             </ul>
         </div>
 
@@ -430,12 +434,12 @@
             ABOUT US
         </p>
         <p class="Abouttext">
-            <a href="#ABC"> Introduction </a> <br>
-            <a href="#ABC"> Recruitment  </a> <br> 
-            <a href="#ABC"> Payment security policy  </a> <br>
-            <a href="#ABC"> Information security policy </a> <br>
-            <a href="#ABC"> Resolve complaints policy </a> <br>
-            <a href="#ABC"> Terms of use </a> <br>
+             <a href="Introduction.html"> Introduction </a> <br>
+            <a href="recruit.html"> Recruitment  </a> <br> 
+            <a href="payment.html"> Payment security policy  </a> <br>
+            <a href="security.html"> Information security policy </a> <br>
+            <a href="complaints.html"> Resolve complaints policy </a> <br>
+            <a href="termsofuse.html"> Terms of use </a> <br>
         </p>
 
         <p class="headerr" style="left:53%">

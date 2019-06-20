@@ -67,7 +67,7 @@ public class AccountLogin extends HttpServlet {
 					}
 					else
 					{
-						RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/NewFile1.jsp");
+						RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/login.jsp");
 						
 						RequetsDispatcherObj.forward(request, response);
 

@@ -1,0 +1,226 @@
+body{
+	background-color: rgba(128, 128, 128, .5);
+}
+
+/*============Begin Header===========*/
+.container{
+	background-color: white;
+}
+
+.sign-up-bar{
+	background-color: black;
+}
+
+.sign-up{
+	margin-bottom: 0;
+	padding: 0;
+	margin-left: auto;
+}
+
+.sign-up li{
+	float: right;
+	padding: 10px;
+}
+
+.sign-up a{
+	font-weight: bold;
+	padding: 0 10px;
+	padding-left: 0;
+	color: white;
+	display: block;
+}
+
+.sign-up li:hover{
+	background-color: #f9f9f9;
+}
+
+.sign-up a:hover{
+	text-decoration: none;
+	color: black;
+}
+
+.logo {
+	margin: 10px auto;
+	padding-top: 10px;
+}
+
+.logo img{
+	width: 200px;
+	height: 100px;
+}
+
+.menu-bar{
+	margin: 0 auto;
+}
+
+.menu-bar li{
+	float: left;
+	padding: 10px;
+	padding-left: 20px;
+}
+
+
+.menu-bar a{
+	color: #323232;
+	font-size: 22px;
+}
+
+.drop-down{
+	display: inline-block;
+}
+
+.menu-bar li:hover{
+	background-color: #f9f9f9;
+	border-top: 5px solid #9577c2;
+}
+
+.menu-bar a:hover, .drop-down:hover .drop-button{
+	background-color: #f9f9f9;	
+	text-decoration: none;
+}
+
+.drop-content{
+	display: none;
+	position: absolute;
+  	background-color: #f9f9f9;
+  	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  	z-index: 1;
+  	width: 275px;
+  	margin-left: -20px;
+  	margin-top: 10px;
+}
+
+.drop-content a{
+	color: #9577c2;
+	margin-left: 15px;
+  	padding: 12px 10px;
+	display: block;
+	text-align: left;
+	font-size: 16px;
+	max-width: 130px;
+}
+
+.drop-content a:hover{
+	border-top: 1px solid #9577c2;
+	background-color: #f1f1f1;
+}
+
+.drop-down:hover .drop-content{
+	display: inline-block;
+}
+
+/*==============End header===============*/
+
+/*=============Start footer=================*/
+#footer{	
+}
+
+#footer .container{
+	margin: 0 auto;
+	background-color: black;
+	padding-bottom: 50px;
+}
+
+.footer-header{
+	border-bottom: 1px solid #323323;
+	padding-bottom: 10px;
+}
+
+.footer-header .text{
+	color: white;
+	margin: 40px 0px 10px 0;
+	padding-left: 50px;
+}
+
+.footer-header .text h1{
+	font-size: 22px
+}
+
+.footer-header .text{
+	font-size: 13px;
+}
+
+#input-email-box{
+	background-color: transparent;
+	border: 1px solid white;
+	border-radius: 5px;
+	width: 90%;
+	font-size: 20px;
+	margin-top: 40px;
+	padding: 10px 0 10px 10px;
+}
+
+.submit-btn{
+	width: 80%;
+	padding: 0;
+	margin-top: 40px;
+}
+
+.submit-btn button{
+	background-color: white;
+	font-size: 20px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: 1px solid #323323;
+	color: #323323;
+}
+
+.submit-btn button:hover{
+	background-color: transparent;
+	border: 1px solid white;
+	color: white;
+}
+
+.footer-content{
+	position: relative;
+	width: 97%;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.footer-content .col-md-3{
+	padding: 10px 20px;
+}
+
+.footer-content h1{
+	color: white;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+.footer-content a{
+	color: white;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+.footer-content .hotline a{
+	color: #C4011A;	
+}
+
+.footer-content .about-us a{
+	display: block;
+	margin-bottom: 5px;
+}
+
+.footer-content small{
+	line-height: 60%;
+	color: white;
+}
+
+.hotline{
+	margin-bottom: 10px;
+}
+
+.footer-content i{
+	color: white;
+	font-size: 50px;
+}
+
+.footer-content .fab, .footer-content .far, .footer-content .fas{
+	margin: 0 15px 10px 0;	
+}
+
+.connect-us{
+	margin-bottom: 20px;
+}

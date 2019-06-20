@@ -1,0 +1,160 @@
+body{
+	background-color: rgba(128, 128, 128, .5);
+}
+
+
+.container{
+	background-color: rgba(255,255,255, 0.7);
+}
+
+
+/*==============Begin content============*/
+
+#content .container{
+	margin-top: 10px;
+	padding: 0;
+}
+
+#content .row{
+	margin: 0;
+}
+
+.author-header{
+	padding: 10px 20px;
+	padding-top: 30px;
+	background-color: rgb(191,191,191);
+	display: block;
+	width: 100%;
+}
+
+.author-header h1{
+	font-size: 20px;
+}
+
+/*===========<!-- End author header -->============*/
+
+
+.detail-table{
+	width: 100%;
+	padding: 20px;
+}
+
+.detail-table table{
+	border: 1px solid #404040;
+	border-collapse: collapse;
+	padding: 10px;
+	width: 100%;
+	margin: auto;
+	margin-left: 0;
+	margin-right: 20px;
+}
+
+.detail-table .col-detail{
+	width: 40%;
+	padding: 10px;
+	padding-left: 20px;
+	font-size: 13px;
+	color: black;
+	border-bottom: 1px solid #404040;
+}
+
+.detail-table .col-detail a{
+	color: #189eff;
+}
+
+.detail-table .col-name{
+	width: 20%;
+	background-color: #606060;
+	padding: 10px;
+	font-size: 13px;
+	color: #E0E0E0;
+	border-right: 1px solid #404040;
+	border-bottom: 1px solid #404040;
+}
+
+.author-image{
+	margin-left: 20px;
+	width: 100%;
+	height: 300px;
+}
+
+/*=============<!-- End detail-table -->==============*/
+
+.recommend-product{
+	position: relative;
+}
+
+.recommend-header{
+	padding: 10px 20px;
+	padding-top: 40px;
+	background-color: rgb(191,191,191);
+	display: block;
+	width: 100%;
+}
+
+.recommend-header h1{
+	font-size: 18px;
+}
+
+.recommend-slide{
+	width: 100%;
+}
+
+.recommend-slide .prev,.recommend-slide .next{
+	position: absolute;
+	top: 38%;
+	cursor: pointer;	
+  	user-select: none;
+	font-weight: bold;
+  	border-radius: 0 10px 10px 0;
+  	z-index: 1;
+	font-size: 30px;
+	padding: 0 20px;
+	border: none;
+	background-color: transparent;
+	color: #A0A0A0 !important;
+}
+
+.recommend-slide .next{	
+	right: 0;	
+  	border-radius: 10px 0 0 10px;
+}
+
+#genre-adventure{
+	margin: 0 auto !important;
+}
+
+.category{
+	width: 90%;
+}
+
+.category .item{
+	padding: 20px;
+	padding-top: 40px;
+}
+
+.category img{
+	width: 100%;
+	height: 300px;
+}
+
+.category .item-text a{
+	font-size: 18px;
+}
+
+.category .item-text p{
+	font-size: 15px;
+	text-align: left;
+	padding: 10px 0px;
+	text-indent: 0;
+	padding-bottom: 0px;
+}
+
+.category .item-text i{
+	color: #B8860B;
+}
+/*=====<!-- End recommend product -->========*/
+
+/*===============End content========================*/
+
+

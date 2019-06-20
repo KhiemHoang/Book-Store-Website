@@ -10,14 +10,15 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
-
-public class IndexDao {
+public class SearchNameDAO {
 	private DataSource dataSource;
 
-	public IndexDao(DataSource theDataSource) {
+	public SearchNameDAO(DataSource theDataSource) {
 		dataSource = theDataSource;
+		
 	}
-	public List<Book> getbook() throws Exception
+	
+	public List<Book> getbook(String name) throws Exception
 	{
 		
 		List<Book> books = new ArrayList<>();
@@ -27,12 +28,13 @@ public class IndexDao {
 		
 		try {
 			 myConn = dataSource.getConnection();
-			 String sql = "select * from book";
+			 String sql = "select * from book where bookname like '%"+name+"%'";
+			 System.out.println(sql);
 			 myStmt = myConn.createStatement();
 			 myRs = myStmt.executeQuery(sql);
 			 while(myRs.next())
 			 {
-				 	int id = myRs.getInt("bookid");
+				 int id = myRs.getInt("bookid");
 				 	String bookname = myRs.getString("bookname");
 				 	int bookprice = myRs.getInt("bookprice");
 				 	int bookquantity = myRs.getInt("bookquantity");
@@ -41,6 +43,7 @@ public class IndexDao {
 				 	String bookImg = myRs.getString("BookImg");
 				 	Book tempbook = new Book(id,bookname,bookprice,bookquantity,booksize,booktype,bookImg);
 				 	books.add(tempbook);
+				 	System.out.println(bookname);
 			 }
 		}
 		finally	 {
@@ -50,47 +53,6 @@ public class IndexDao {
 		
 		return books;
 	}
-	
-	
-	public List<String> getbooktype() throws Exception
-	{
-		List<String> booktype = new ArrayList<>();
-		Connection myConn = null;
-		Statement myStmt = null;
-		ResultSet myRs = null;
-		
-
-		try {
-			 myConn = dataSource.getConnection();
-			 String sql = "select booktype from book group by booktype order by booktype";
-			 
-			 myStmt = myConn.createStatement();
-			 myRs = myStmt.executeQuery(sql);
-			 while(myRs.next())
-			 {	 	
-				 	String type = myRs.getString("booktype");
-				 	booktype.add(type);
-				 	System.out.println(type);
-				 
-
-			 }
-		}
-		finally	 {
-			close(myConn,myStmt,myRs);
-		}
-		
-		return booktype;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	private void close(Connection myConn, Statement myStmt, ResultSet myRs) {
 		try {
@@ -112,4 +74,31 @@ public class IndexDao {
 		}
 		
 	}
+	public List<String> getbooktype() throws Exception
+	{
+		List<String> booktype = new ArrayList<>();
+		Connection myConn = null;
+		Statement myStmt = null;
+		ResultSet myRs = null;
+		
+
+		try {
+			 myConn = dataSource.getConnection();
+			 String sql = "select booktype from book group by booktype order by booktype";
+			 myStmt = myConn.createStatement();
+			 myRs = myStmt.executeQuery(sql);
+			 while(myRs.next())
+			 {	 	
+				 	String type = myRs.getString("booktype");
+				 	booktype.add(type);
+			 }
+		}
+		finally	 {
+			close(myConn,myStmt,myRs);
+		}
+		
+		return booktype;
+	}
 }
+
+

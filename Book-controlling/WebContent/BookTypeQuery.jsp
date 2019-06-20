@@ -13,12 +13,12 @@
 	<title>index.html</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
 	<script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
-	<!-- JS táº¡o nÃºt báº¥m di chuyá»n trang start -->
+	<!-- JS tạo nút bấm di chuyển trang start -->
 	<script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
-	<!-- JS táº¡o nÃºt báº¥m di chuyá»n trang end -->
+	<!-- JS tạo nút bấm di chuyển trang end -->
 	<script type="text/javascript">
 	$(function () {
-		var pageSize = 6; // Hiá»n thá» 6 sáº£n pháº©m trÃªn 1 trang
+		var pageSize = 6; // Hiển thị 6 sản phẩm trên 1 trang
 		showPage = function(page) {
 			$(".contentPage").hide();
 			$(".contentPage").each(function(n) {
@@ -27,7 +27,7 @@
 			});        
 		}
 		showPage(1);
-		///** Cáº§n truyá»n giÃ¡ trá» vÃ o ÄÃ¢y **///
+		///** Cần truyền giá trị vào đây **///
 		var bla = $('#Totalrecord').html();
 		var totalRows = 
 			bla; 
@@ -111,7 +111,7 @@
 
         <div class="slgcontainer">
             <div class="Slg">
-                <h1>
+                 <h1>
                     FIND YOURSELF IN A
                     <br />
                     GREAT BOOK
@@ -155,7 +155,7 @@
 
 
 
-	 <%
+	<%
         
         
         List<Book> books = (List<Book>) request.getAttribute("booklist");

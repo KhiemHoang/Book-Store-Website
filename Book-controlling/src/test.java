@@ -28,13 +28,7 @@ public class test extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String URL = request.getQueryString();
-		System.out.println(URL);
-		System.out.println(URLDecoder.decode(URL));
-		URL = URLDecoder.decode(URL);
-		String[] parts = URL.split("searchbox=");
-		String part2 = parts[1];
-		System.out.println(part2);
+		System.out.println("hello");
 	}
 
 	/**

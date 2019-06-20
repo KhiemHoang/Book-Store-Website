@@ -6,10 +6,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="CSS/login.css">
+<link rel="stylesheet" type="text/css" href="assets/css/login.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<link type="text/css" rel="stylesheet" href="CSS/setup.css">
+<link rel="stylesheet" type="text/css" href="assets/css/setup.css">
 </head>
 <body >
 <body style="background-color:lightpink">

@@ -5,6 +5,13 @@ function imageZoom(imgs) {
   expandImg.parentElement.style.display = "block";
 }
 
+
+function show_cmt(){
+	var div = document.getElementById("new-cmt-pnl");
+
+	div.style.display = "block";
+}
+
 // //For slide show
 // var slide_index = 1;
 

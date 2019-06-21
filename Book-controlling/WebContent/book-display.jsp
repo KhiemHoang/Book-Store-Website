@@ -10,15 +10,28 @@
 		<meta charset="ISO-8859-1">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">		
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/setup.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/book-display.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/header-footer.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>		
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/setup.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css"/>
 		
-
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		
+		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="assets/css/book-display.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/header-footer.css"/>
+		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+	
+		<%
+	
+		List<Book> books = (List<Book>)request.getAttribute("BOOK_LIST");
+		String authorname = (String)request.getAttribute("BOOK_AUTHOR");
+		List<Publisher> publish = (List<Publisher>)request.getAttribute("PUBLISH_LIST");
+		List<Book> CustomBook = (List<Book>)request.getAttribute("Custom_Book");
+		%>
+	
 	</head>
 
 	<body>
@@ -30,8 +43,9 @@
 				<div class="row product-summary">
 					<div class="row col-md-6 product-image">
 						<div class="col-md-3 product-feature-image">
-							<img src="assets/image/book-cover.jpg" onclick="imageZoom(this);">
-							<img src="assets/image/book-page.png" onclick="imageZoom(this);">
+							<img src="<%= books.get(0).getBookImg() %>" onclick="imageZoom(this);">	
+							<img src="<%= books.get(0).getBookImg1() %>" onclick="imageZoom(this);">
+							<img src="<%= books.get(0).getBookImg2() %>" onclick="imageZoom(this);">
 						</div>
 						<!-- End product feature -->
 
@@ -52,7 +66,7 @@
 						<div class="product-cart-header">
 							<div class="product-name">
 								<i class="far fa-hand-point-right"></i>
-								<h1>LIFE OF PI</h1>					
+								<h1><%= books.get(0).getBookName() %></h1>					
 							</div>
 							<div class="product-info">
 								<div class="product-status">
@@ -65,8 +79,8 @@
 								</div>
 								<div class="product-detail">
 									<p>Author: </p>
-									<a href="author.html">Yasn Martel</a>
-									<p>Release date: 11 September 2001</p>
+									<a href="author.html"><%= authorname %></a>
+									<p>Release date: <%= publish.get(0).getRelease() %></p>
 								</div>
 							</div>
 						</div>
@@ -75,15 +89,15 @@
 						<div class="row">
 							<div class="col-md-7 no-padding-right">
 								<div class="product-price">
-									<h1>212.500 VND</h1>
+									<h1><%=books.get(0).getBookPrice() - books.get(0).getBookPrice()*15/100 %> VND</h1>
 									<div class="price-info">
 										<span class="text">Save up: </span>
 										<span class="discount">15%</span>
-										<span class="price">(37.500 VND)</span>
+										<span class="price">(<%=books.get(0).getBookPrice()*15/100 %> VND)</span>
 									</div>
 									<div class="price-info">
 										<span class="text">Market price: </span>
-										<span class="price">250.000 VND</span>
+										<span class="price"><%=books.get(0).getBookPrice() %> VND</span>
 									</div>
 								</div>
 								<!-- End product price -->
@@ -126,7 +140,7 @@
 
 									<div class="commitment-info">
 										<i class="fas fa-hand-holding-usd"></i>
-										<div class="info">z
+										<div class="info">
 											<span class="heading">Refund 111%<span>
 											<span class="text">Fake detected only.</span>
 										</div>
@@ -180,42 +194,20 @@
 					<div class="recommend-slide">
 
 						<div id="genre-adventure" class="row category slide-show-category-1 fade">
-								<div class="col-md-3 item">
-									<a href=""><img src="assets/image/adventure-cover.jpg"></a>
-
-									<div class="item-text">
-										<a href="">Harry Potter</a>
-										<p>Price: 145,000 VND</p>
-										<p>Rate: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-									</div>
-								</div>
-								<div class="col-md-3 item">
-									<a href=""><img src="assets/image/adventure-cover.jpg"></a>
-
-									<div class="item-text">
-										<a href="">Harry Potter</a>
-										<p>Price: 145,000 VND</p>
-										<p>Rate: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-									</div>
-								</div>
-								<div class="col-md-3 item">
-									<a href=""><img src="assets/image/adventure-cover.jpg"></a>
-
-									<div class="item-text">
-										<a href="">Harry Potter</a>
-										<p>Price: 145,000 VND</p>
-										<p>Rate: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-									</div>
-								</div>
-								<div class="col-md-3 item">
-									<a href=""><img src="assets/image/adventure-cover.jpg"></a>
-
-									<div class="item-text">
-										<a href="">Harry Potter</a>
-										<p>Price: 145,000 VND</p>
-										<p>Rate: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-									</div>
-								</div>
+							<%
+								for(int i=0; i < CustomBook.size(); i++)
+								{
+									out.println("<div class=\"col-md-3 item\">");
+										out.println("<a href=\"\"><img src=\"" + CustomBook.get(i).getBookImg() + "\"></a>");
+										
+										out.println("<div class=\"item-text\">");
+											out.println("<a href=\"\">" + CustomBook.get(i).getBookName() + "</a>");
+											out.println("<p>Price: " + CustomBook.get(i).getBookPrice() + "</p>");
+											out.println("<p>Rate: <i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></p>");
+										out.println("</div>");
+									out.println("</div>");
+								}
+							%>
 							</div>
 							<!-- End genre adventure -->
 					</div>
@@ -232,23 +224,23 @@
 						<table class="col-md-7">
 							<tr>
 								<td class="col-name">Publisher</td>
-								<td class="col-detail"><a href="">Kim Dong</a></td>
+								<td class="col-detail"><%= publish.get(0).getCompany() %></td>
 							</tr>
 							<tr>
 								<td class="col-name">Author</td>
-								<td class="col-detail"><a href="author.html">Yans Martel</a></td>
+								<td class="col-detail"><a href="author.html"><%= authorname %></a></td>
 							</tr>
 							<tr>
 								<td class="col-name">Publish date</td>
-								<td class="col-detail">11 September 2001</td>
+								<td class="col-detail"><%= publish.get(0).getRelease() %></td>
 							</tr>
 							<tr>
 								<td class="col-name">Size</td>
-								<td class="col-detail">14x20cm</td>
+								<td class="col-detail"><%= books.get(0).getBookSize() %></td>
 							</tr>
 							<tr>
 								<td class="col-name">Version</td>
-								<td class="col-detail">Hardcover, Electronic(PFD)</td>
+								<td class="col-detail">Electronic(PFD)</td>
 							</tr>
 							<tr>
 								<td class="col-name">Page number</td>
@@ -256,7 +248,7 @@
 							</tr>
 							<tr>
 								<td class="col-name">SKU</td>
-								<td class="col-detail">2701536880385</td>
+								<td class="col-detail"><%= publish.get(0).getBookID() %></td>
 							</tr>
 						</table>
 						<!-- End table -->
@@ -512,6 +504,17 @@
 					</div>
 					<!-- End cmt-pnl -->
 				</div>
+				
+				<form id="new-cmt-pnl" class="row user-cmt">
+					<div class="col-md-12 cmt-box">
+						<input class="cmt-box-50" id="input-cmt-box" type="text" name="comment" placeholder="Type your comments here.">
+						<p>Rate:</p>
+						<input class="cmt-box-10" type="number" name="rate" min="1" max="5" value="1">
+						<div class="cmt-box-20" >
+							<input type="Submit">							
+						</div>
+					</div>
+				</form>
 			</div>
 			<!-- End content container -->
 		</div>
@@ -522,8 +525,7 @@
 		<jsp:include page="footer.jsp"/>
 		<!-- End footer -->
 		<!-- ============================Script===================================== -->
-		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
-		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/js/book-display.js"></script>
+		
 	</body>
 </hmtl>	

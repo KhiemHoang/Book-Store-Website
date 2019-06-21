@@ -24,6 +24,7 @@ public class Book_Display_Servlet extends HttpServlet {
 	private Book_DBUtil bookDButil;
 	private Publish_DBUtil publishDButil;
 	private IndexDao abc;
+	private Book_Cmt_DBUtil BookCmtDBUtil;
 	@Resource(name="jdbc/book_controlling")
 	private DataSource dtSource;
    
@@ -36,6 +37,7 @@ public class Book_Display_Servlet extends HttpServlet {
 		try {
 			publishDButil = new Publish_DBUtil(dtSource);
 			bookDButil = new Book_DBUtil(dtSource);
+			BookCmtDBUtil = new Book_Cmt_DBUtil(dtSource);
 			abc = new IndexDao(dtSource);
 		}
 		catch(Exception exec) {
@@ -62,6 +64,8 @@ public class Book_Display_Servlet extends HttpServlet {
 		getBookAuthor(request, response, part2);
 		getPublishInfor(request, response, part2);
 		getCustomBookList(request, response, part2);
+		getCmtList(request, response, part2);
+		getUserCmt(request, response, part2);
 		}
 		catch (Exception exec) {
 			exec.printStackTrace();
@@ -104,5 +108,21 @@ public class Book_Display_Servlet extends HttpServlet {
   		List<Book> books = bookDButil.getCustomBooks(name);
   				
   		request.setAttribute("Custom_Book", books);
+  	}
+  	
+  	//get All cmt
+  	public void getCmtList(HttpServletRequest request, HttpServletResponse response, String name)
+			throws Exception {
+  		List<Book_Cmt> cmt = BookCmtDBUtil.getCmtInfor(name);
+  				
+  		request.setAttribute("Comment", cmt);
+  	}
+  	
+  	//get User cmt
+  	public void getUserCmt(HttpServletRequest request, HttpServletResponse response, String name)
+			throws Exception {
+  		List<Users> users = BookCmtDBUtil.getUserCmt(name);
+  				
+  		request.setAttribute("UserList", users);
   	}
 }

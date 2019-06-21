@@ -30,6 +30,8 @@
 		String authorname = (String)request.getAttribute("BOOK_AUTHOR");
 		List<Publisher> publish = (List<Publisher>)request.getAttribute("PUBLISH_LIST");
 		List<Book> CustomBook = (List<Book>)request.getAttribute("Custom_Book");
+		List<Book_Cmt> Cmt = (List<Book_Cmt> )request.getAttribute("Comment");
+		List<Users> UserCmt = (List<Users>)request.getAttribute("UserList");
 		%>
 	
 	</head>
@@ -473,109 +475,49 @@
 					</div>
 					<!-- End rate-pnl -->
 
-					<div class="row cmt-pnl">
-						<div class="col-md-3 cmt-user">
-							<img src="assets/image/user-icon.png"> 
-							<h1>Michael John</h1>
-							<p>6 months ago</p>
-						</div>
-
-						<div class="col-md-9 cmt-detail">
-							<div class="cmt-rate">							
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<h1>Good</h1>
-							</div>
-
-							<div class="cmt-check">
-								<i class="fas fa-check-circle"></i>
-								<p>Buy product at Or4nge</p>
-							</div>
-
-							<div class="cmt-text">
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-							</div>
-
-							<div class="cmt-option">
-								<i class="fas fa-thumbs-up"></i>
-								<p>Thanks</p>
-								<i class="fas fa-reply"></i>
-								<p>Reply</p>
-							</div>
-						</div>
-					</div>
-					<!-- End cmt-pnl -->
-
-					<div class="row cmt-pnl">
-						<div class="col-md-3 cmt-user">
-							<img src="assets/image/user-icon.png"> 
-							<h1>Michael John</h1>
-							<p>6 months ago</p>
-						</div>
-
-						<div class="col-md-9 cmt-detail">
-							<div class="cmt-rate">							
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<h1>Good</h1>
-							</div>
-
-							<div class="cmt-check">
-								<i class="fas fa-check-circle"></i>
-								<p>Buy product at Or4nge</p>
-							</div>
-
-							<div class="cmt-text">
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-							</div>
-
-							<div class="cmt-option">
-								<i class="fas fa-thumbs-up"></i>
-								<p>Thanks</p>
-								<i class="fas fa-reply"></i>
-								<p>Reply</p>
-							</div>
-						</div>
-					</div>
-					<!-- End cmt-pnl -->
-
-					<div class="row cmt-pnl">
-						<div class="col-md-3 cmt-user">
-							<img src="assets/image/user-icon.png"> 
-							<h1>Michael John</h1>
-							<p>6 months ago</p>
-						</div>
-
-						<div class="col-md-9 cmt-detail">
-							<div class="cmt-rate">							
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<h1>Good</h1>
-							</div>
-
-							<div class="cmt-check">
-								<i class="fas fa-check-circle"></i>
-								<p>Buy product at Or4nge</p>
-							</div>
-
-							<div class="cmt-text">
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-							</div>
-
-							<div class="cmt-option">
-								<i class="fas fa-thumbs-up"></i>
-								<p>Thanks</p>
-								<i class="fas fa-reply"></i>
-								<p>Reply</p>
-							</div>
-						</div>
-					</div>
+					<%
+						for(int i = 0; i<Cmt.size(); i++)
+						{
+							out.println("<div class=\"row cmt-pnl\">");
+								out.println("<div class=\"col-md-3 cmt-user\">");
+									out.println("<img src=\""+ UserCmt.get(i).getUserIMG() + "\"> ");
+									out.println("<h1>" + UserCmt.get(i).getUserName() + "</h1>");
+								out.println("</div>");
+								
+								out.println("<div class=\"col-md-9 cmt-detail\">");
+									out.println("<div class=\"cmt-rate\">");
+										for(int j = 0; j < Cmt.get(i).getRateScore(); j++){
+											out.println("<i class=\"fas fa-star\"></i>");
+										}
+										if(Cmt.get(i).getRateScore() < 3){
+											out.println("<h1>Bad</h1>");
+										}
+										else if(Cmt.get(i).getRateScore() == 3 || Cmt.get(0).getRateScore() == 4){
+											out.println("<h1>Good</h1>");
+										}
+										else if(Cmt.get(i).getRateScore() == 5){
+											out.println("<h1>Masterpiece</h1>");
+										}
+									out.println("</div>");
+									
+									out.println("<div class=\"cmt-check\">");
+										out.println("<i class=\"fas fa-check-circle\"></i>");
+										out.println("<p>Buy product at Or4nge</p>");
+									out.println("</div>");
+									
+									out.println("<div class=\"cmt-text\">");
+										out.println("<p>" + Cmt.get(i).getCmtText() + "</p>");
+									out.println("</div>");
+									
+									out.println("<div class=\"cmt-option\">");
+										out.println("<i class=\"fas fa-thumbs-up\"></i>");
+										out.println("<p>" + Cmt.get(i).getCmtLike() + "</p>");
+									out.println("</div>");
+									
+								out.println("</div>");
+							out.println("</div>");
+						}
+					%>
 					<!-- End cmt-pnl -->
 				</div>
 				

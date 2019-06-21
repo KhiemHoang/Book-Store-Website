@@ -150,7 +150,6 @@
         		for (int i = 0; i<type.size(); i++)
         			out.println("<li><a href =\"categoryservlet?type="+type.get(i)+"\">"+type.get(i)+"</a></li>	");
         	
-        	
         	%>
         
         	</ul>

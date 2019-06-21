@@ -13,6 +13,9 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">		
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/setup.css">
+		
+		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/header-footer.css">
 		
@@ -98,8 +101,6 @@
 		<!-- End footer -->
 
 		<!-- ============================Script===================================== -->
-		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
-		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/js/home-page.js"></script>
 	</body>
 </hmtl>

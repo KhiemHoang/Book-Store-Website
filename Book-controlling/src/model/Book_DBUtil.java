@@ -115,6 +115,44 @@ public class Book_DBUtil {
 		}
 	}
 
+	//get List of Custom Book
+	public List<Book> getCustomBooks() throws Exception{
+		List<Book> books = new ArrayList<>();
+		
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+	
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "SELECT * FROM book_controlling.book where book_controlling.book.BookType like '%Action%' LIMIT 4;"; //sql query
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
+			while(rss.next())
+			{
+				int Book_ID = rss.getInt("BookID");
+				String Book_Name = rss.getString("BookName");
+				int Book_Price = rss.getInt("BookPrice");
+				int Quantity = rss.getInt("BookQuantity");
+				String Size = rss.getString("BookSize");
+				String Type = rss.getString("BookType");
+				String Book_Img1 = rss.getString("BookImgLink1");
+				String Book_Img2 = rss.getString("BookImgLink2");
+				String Book_Img = rss.getString("BookImg");
+				String Book_Link = rss.getString("BookLink");
+				
+				Book tempAuthor = new Book(Book_ID, Book_Name, Book_Price, Quantity, Size, Type, Book_Img1, Book_Img2, Book_Img, Book_Link);
+				books.add(tempAuthor);
+			}
+			
+			return books;
+		}
+		finally {
+			close(con, stm, rss);
+		}
+	}
+	
 	//get List of Adventure grene book(Name, Price, Img)
 		public List<Book> getAdventureBooks() throws Exception{
 			
@@ -199,9 +237,16 @@ public class Book_DBUtil {
 				String Book_Name = rss.getString("BookName");
 				int Book_Price = rss.getInt("BookPrice");
 				String Book_Img = rss.getString("BookImg");
+				String Book_Img1 = rss.getString("BookImgLink1");
+				String Book_Img2 = rss.getString("BookImgLink2");
+				String Book_Size = rss.getString("BookSize");
+				int Book_SKU = rss.getInt("BookID");
+				String Book_Link = rss.getString("BookLink");
+				String Book_Type = rss.getString("BookType");
+				int Book_Quantity = rss.getInt("BookQuantity");
 				
 				
-				Book tempAuthor = new Book(Book_Name, Book_Price, Book_Img);
+				Book tempAuthor = new Book(Book_SKU, Book_Name, Book_Price, Book_Quantity, Book_Size, Book_Type, Book_Img1, Book_Img2, Book_Img, Book_Link);
 				books.add(tempAuthor);
 			}
 			
@@ -210,6 +255,38 @@ public class Book_DBUtil {
 		finally {
 			close(con, stm, rss);
 		}
+	}
+
+	//get Book'Author
+	public String getBookAuthor() throws Exception{
+		String bookAuthor = new String();
+		
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "SELECT book_controlling.author.AuthorName as 'AuthorName' "
+					+ "FROM book_controlling.book, book_controlling.author, book_controlling.publish "
+					+ "where book_controlling.book.BookID = book_controlling.publish.BookID and "
+					+ "book_controlling.publish.AuthorID = book_controlling.author.AuthorID and "
+					+ "book_controlling.book.BookID = 1;"; //sql query
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
+			
+			while(rss.next())
+			{
+				bookAuthor = rss.getString("AuthorName");
+			}
+			return bookAuthor;
+		}
+		finally {
+			close(con, stm, rss);
+	
+		
+		}		
 	}
 	
 	//Close Connection

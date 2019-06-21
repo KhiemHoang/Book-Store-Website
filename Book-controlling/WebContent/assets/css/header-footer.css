@@ -6,9 +6,13 @@ body{
 .container{
 	background-color: white;
 }
-
+.row{
+	margin:0;
+}
 .sign-up-bar{
 	background-color: black;
+	margin-right: -15px;
+    margin-left: -15px;
 }
 
 .sign-up{

@@ -34,10 +34,10 @@
 	<div id="content">
 			<div class="container">
 				<div class="read-pnl">
-					<embed src="book1" type="application/pdf"></embed>
+					<embed src="book1.pdf" type="application/pdf"></embed>
 				</div>
 				<div class="book-info">
-					<h1>Book Name</h1>
+					<h1><%= books.get(0).getBookName() %></h1>
 					<div class="row description">
 						<table class="col-md-7">
 							<tr>
@@ -46,7 +46,10 @@
 							</tr>
 							<tr>
 								<td class="col-name">Author</td>
-								<td class="col-detail"><a href="author.html"><%= authorname %></a></td>
+								<%
+									out.println("<td class=\"col-detail\"><a href=\"Author_Servlet?name="+authorname+"\">"+authorname+"</a></td>");
+								%>
+								
 							</tr>
 							<tr>
 								<td class="col-name">Publish date</td>

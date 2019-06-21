@@ -262,7 +262,47 @@ public class Book_DBUtil {
 			close(con, stm, rss);
 		}
 	}
-
+	
+	public List<Book> getAllInfor2(String id) throws Exception{
+		List<Book> books = new ArrayList<>();
+		
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+	
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "SELECT * FROM book_controlling.book"
+					+ " where bookid = '"+id+"'"; //sql query
+			System.out.println(sql);
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
+			while(rss.next())
+			{
+				String Book_Name = rss.getString("BookName");
+				int Book_Price = rss.getInt("BookPrice");
+				String Book_Img = rss.getString("BookImg");
+				System.out.println(Book_Img);
+				String Book_Img1 = rss.getString("BookImgLink1");
+				String Book_Img2 = rss.getString("BookImgLink2");
+				String Book_Size = rss.getString("BookSize");
+				int Book_SKU = rss.getInt("BookID");
+				String Book_Link = rss.getString("BookLink");
+				String Book_Type = rss.getString("BookType");
+				int Book_Quantity = rss.getInt("BookQuantity");
+				
+				Book tempAuthor = new Book(Book_SKU, Book_Name, Book_Price, Book_Quantity, Book_Size, Book_Type, Book_Img1, Book_Img2, Book_Img, Book_Link);
+				books.add(tempAuthor);
+			}
+			
+			return books;
+		}
+		finally {
+			close(con, stm, rss);
+		}
+	}
+	
 	//get Book'Author
 	public String getBookAuthor(String name) throws Exception{
 		String bookAuthor = new String();
@@ -294,6 +334,38 @@ public class Book_DBUtil {
 		
 		}		
 	}
+	
+	public String getBookAuthor2(String id) throws Exception{
+		String bookAuthor = new String();
+		
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "SELECT book_controlling.author.AuthorName as 'AuthorName' "
+					+ "FROM book_controlling.book, book_controlling.author, book_controlling.publish "
+					+ "where book_controlling.book.BookID = book_controlling.publish.BookID and "
+					+ "book_controlling.publish.AuthorID = book_controlling.author.AuthorID and "
+					+ "book_controlling.book.bookid = '"+id+"'"; //sql query
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
+			
+			while(rss.next())
+			{
+				bookAuthor = rss.getString("AuthorName");
+			}
+			return bookAuthor;
+		}
+		finally {
+			close(con, stm, rss);
+	
+		
+		}		
+	}
+	
 	
 	//Close Connection
 		private void close(Connection con, Statement stm, ResultSet rss) {

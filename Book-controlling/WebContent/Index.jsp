@@ -85,13 +85,16 @@
                 <li><a href="#abc">Events</a></li>
                 <%
                 	if(session.getAttribute("username") != null)
-                	out.println("<li><a href=\"test?"+session.getAttribute("username")+"\">HELLO "+ session.getAttribute("username")+"</a></li>");
+                		{
+                		out.println("<li><a href=\"profile?name="+session.getAttribute("username")+"\">HELLO "+ session.getAttribute("username")+"</a></li>");
+                		out.println("<li><a href=\"logout\">Log out</a></li>");
+                		}
 
                 %>
-                <li style="float:left"><a href="#abc" style="font-family:'Times New Roman'">My Book Store</a></li>
+                <li style="float:left"><a href="http://localhost:8080/Book-controlling/IndexServlet" style="font-family:'Times New Roman'">My Book Store</a></li>
                 <%
-            	if(session.getAttribute("username") != null)
-            		System.out.println("<li style=\"float:left\"><a href=\"#abc\">Cart</a></li>");
+            		if(session.getAttribute("username") != null)
+            		out.println("<li style=\"float:left\"><a href=\"#abc\">Cart</a></li>");
                 %>
                 
             </ul>

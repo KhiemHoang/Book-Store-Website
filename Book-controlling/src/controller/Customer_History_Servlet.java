@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import model.*;
@@ -47,31 +49,53 @@ public class Customer_History_Servlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			getUserInfor(request, response);
-			getOrderInfor(request, response);
+			HttpSession session = request.getSession(false);
+			if(session == null)
+				{
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+				dispatcher.forward(request, response);
+				}
+			else
+			{
+				String name = (String)session.getAttribute("username");
+				getUserInfor(request, response,name);
+				List<Order_History> TEMPLIST = getOrderInfor(request, response,name);
+				List<String> bname = new ArrayList<String>();
+				for(int i =0;i<TEMPLIST.size();i++)
+					 bname.add(getbookname(TEMPLIST.get(i).getBookID()));
+				request.setAttribute("bname", bname);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("customer-history.jsp");
+				dispatcher.forward(request, response);
+			}
 			}
 			catch (Exception exec) {
 				exec.printStackTrace();
 			}	
 			
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/customer-history.jsp");
-		dispatcher.forward(request, response);
+		
 	}
    
-
+	public String getbookname(int i) throws Exception
+	{
+		String name = orderDButil.getname(i);
+		return name;
+	}
 	//get Customer Infor
-  	public void getUserInfor(HttpServletRequest request, HttpServletResponse response)
+  	public void getUserInfor(HttpServletRequest request, HttpServletResponse response,String Name)
 			throws Exception {
-  		List<Users> users = cusDButil.getUserInfor();
+  		List<Users> users = cusDButil.getUserInfor(Name);
   				
   		request.setAttribute("cus_infor", users);
   	}
    
   	//get Order Infor
-  	public void getOrderInfor(HttpServletRequest request, HttpServletResponse response)
+  	public List<Order_History> getOrderInfor(HttpServletRequest request, HttpServletResponse response,String name)
 			throws Exception {
-  		List<Order_History> history = orderDButil.getHistoryInfor();
+  		List<Order_History> history = orderDButil.getHistoryInfor(name);
   				
   		request.setAttribute("history", history);
+  		return history;
   	}
+  	
+  		
 }

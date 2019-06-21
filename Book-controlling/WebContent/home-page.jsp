@@ -33,7 +33,60 @@
 	</head>
 
 	<body>
-		<jsp:include page="header.jsp"/>
+		
+		<div id="header">
+			<div class="container">
+				<div class="row sign-up-bar">
+					<ul class="sign-up">						
+						<li><a href="">Login</a></li>
+						<li><a href="">Sign up</a></li>
+					</ul>
+				</div>
+				<div class="row">
+					<div class="logo">
+						<a href="home-page.html"><img src="assets/image/logo.png"></a>
+					</div>
+				</div>
+				<div class="row">
+					<ul class="menu-bar">
+						<li><a href="home-page.html">Home</a></li>
+						<li class="drop-down">
+							<a href="" class="drop-button">Genres</a>
+								<div class="drop-content">
+									<%
+									List<String> type = (List<String>) request.getAttribute("booktypes");
+									int hang = type.size()/2;
+									int le = type.size()%2;
+									int counter = 0;
+									int o = 0;
+									for ( counter=0;counter < hang;counter++)
+									{	
+										
+										out.println("<div class=\"row\"><a href=\"categoryservlet?type=" +type.get(o) +"\" class=\"col-sm\">"+type.get(o)+"</a><a href=\"categoryservlet?type=" +type.get(o+1)+"\" class=\"col-sm\">"+type.get(o+1)+"</a></div>");
+										o = o+2;
+										
+										
+									}
+									if (le != 0)
+									{
+										out.println("<div class=\"row\"><a href=\"\" class=\"col-sm\">"+type.get(type.size()-1)+"</a></div>");
+									}
+									
+									%>								
+								
+								</div>
+						</li>
+						
+												
+						<li><a href="">About Us</a></li>
+						<li><a href="">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		
 		<!-- End Header -->
 
 		<div id="content">

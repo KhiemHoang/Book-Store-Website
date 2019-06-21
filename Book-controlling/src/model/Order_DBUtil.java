@@ -19,7 +19,7 @@ public class Order_DBUtil {
 	}
 	
 	//get Order History
-	public List<Order_History> getHistoryInfor() throws Exception{
+	public List<Order_History> getHistoryInfor(String name) throws Exception{
 		
 		List<Order_History> history = new ArrayList<>();
 		
@@ -30,10 +30,8 @@ public class Order_DBUtil {
 		try {
 			con = dataSource.getConnection();
 			
-			String sql = "SELECT * "
-					+ " FROM book_controlling.order_history, book_controlling.order"
-					+ " where book_controlling.order_history.OrderID = book_controlling.order.OrderID"
-					+ " and book_controlling.order.CustomerID =1;"; //sql query
+			String sql = "SELECT *  FROM book_controlling.order_history, book_controlling.order where book_controlling.order_history.OrderID = book_controlling.order.OrderID and book_controlling.order.CustomerID = (select userid from users where username = '"+name+"')";
+			System.out.println(sql);
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			while(rss.next())
@@ -73,4 +71,32 @@ public class Order_DBUtil {
 			exc.printStackTrace();
 		}
 	}
+	////
+	public String getname(int i) throws Exception{
+		String name = null;
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = " select bookname from book where bookid ="+i;
+			System.out.println(sql);
+			stm = con.createStatement(); 
+			rss = stm.executeQuery(sql); //exec query
+			while(rss.next())
+			{
+				name = rss.getString("bookname");			
+			}
+			
+			return name;
+		}
+		finally {
+			close(con, stm, rss);
+		}
+		
+	}
+	
+	
 }

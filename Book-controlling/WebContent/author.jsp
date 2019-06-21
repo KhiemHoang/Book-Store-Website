@@ -84,10 +84,10 @@
 							for(int i = 0; i < authorTotal; i++)
 							{
 								out.println("<div class=\"col-md-3 item\">");
-								out.println("<a href=\"\"> <img src =\""+books.get(i).getBookImg() +"\"> </img> </a>");
+								out.println("<a href=\"Book_Display_Servlet?name="+books.get(i).getBookName() +"\"> <img src =\""+books.get(i).getBookImg() +"\"> </img> </a>");
 								
 								out.println("<div class=\"item-text\">");
-								out.println("<a href=\"\">"+books.get(i).getBookName()+"</a>");
+								out.println("<a href=\"Book_Display_Servlet?name="+books.get(i).getBookName() +"\">"+books.get(i).getBookName()+"</a>");
 								out.println("<p>Price: "+ books.get(i).getBookPrice() +" VND</p>");
 								out.println("<p>Rate: <i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></p>");
 								out.println("</div>");

@@ -21,6 +21,7 @@ import model.Author;
 import model.Author_DBUtil;
 import model.Book;
 import model.Book_DBUtil;
+import model.IndexDao;
 
 
 @WebServlet("/Home_Page")
@@ -29,7 +30,7 @@ public class Home_Page_Servlet extends HttpServlet {
        
 	private Author_DBUtil authorDButil;
 	private Book_DBUtil bookDButil;
-	
+	private IndexDao abc;
 	@Resource(name="jdbc/book_controlling")
 	private DataSource dtSource;
 	
@@ -40,12 +41,18 @@ public class Home_Page_Servlet extends HttpServlet {
 		try {
 			authorDButil = new Author_DBUtil(dtSource);
 			bookDButil = new Book_DBUtil(dtSource);
+			abc = new IndexDao(dtSource);
 		}
 		catch(Exception exec) {
 			throw new ServletException(exec);
 		}
 	}
+	private void listtype(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+		List<String> type = abc.getbooktype();
+		request.setAttribute("booktypes", type);
+		
+	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -53,6 +60,7 @@ public class Home_Page_Servlet extends HttpServlet {
 			getBestSellerBookList(request, response);
 			getActionBookList(request, response);
 			getAdventureBookList(request, response);
+			listtype(request,response);
 		}
 		catch (Exception exec) {
 			throw new ServletException(exec);

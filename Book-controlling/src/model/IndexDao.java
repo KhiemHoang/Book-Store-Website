@@ -70,7 +70,7 @@ public class IndexDao {
 			 {	 	
 				 	String type = myRs.getString("booktype");
 				 	booktype.add(type);
-				 	System.out.println(type);
+				 	
 				 
 
 			 }

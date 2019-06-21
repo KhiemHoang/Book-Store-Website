@@ -1,35 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*, model.*, controller.*"%>
 <!DOCTYPE html>
-<html>	
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="assets/css/login.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    
 <link rel="stylesheet" type="text/css" href="assets/css/setup.css">
+<link rel="stylesheet" type="text/css" href="assets/css/register.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
 </head>
-<body >
-<body style="background-color:lightpink" onload="myFunction()">
+<body style="background-color:lightpink">
     <div class="navbar">
 
 
-        
+        <div class="search">
+            <form>
+                <input type="text" name="search" placeholder="Search...">
+            </form>
+        </div>
 
         <div>
             <ul>
                 <li><a href="#abc">Help</a></li>
                 <li><a href="#abc">Events</a></li>
+                <li><a href="#abc">HELLO ABC</a></li>
                 <li style="float:left"><a href="#abc" style="font-family:'Times New Roman'">My Book Store</a></li>
+                <li style="float:left"><a href="#abc">Cart</a></li>
             </ul>
         </div>
-
-    
-
-
-
 
 
     </div>
@@ -38,20 +40,23 @@
      <div class="bodypagecontainer">
            <div class="slgcontainer">
             <h2 style="color:white;font-family:Karla;padding:40px">
-                LOGIN FORM
+                REGISTRATION FORM
             </h2>
           </div>
           <div class="loginbox">
-        <form action = "AccountLogin" method = "GET">
+        <form action = "SignUpServlet" method = "POST">
             <p>Username</p>
             <input type="text" name="username" placeholder="Enter Username" required>
             <p>Password</p>
-            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="password" name="password" placeholder="Enter Password" minlength="6"  required>
+            <p>Email</p>
+            <input type="text" name="email" placeholder="Enter Email" required>
+            <p>Address</p>
+            <input type="text" name="address" placeholder="Enter Address" required>
 
-
-            <input type="submit" name="" value="Login">
-            <a href="forgotpwd.html">Lost your password?</a><br>
-            <a href="SignUp.jsp">Don't have an account?</a>
+            <input type="submit" name="" value="Sign Up">
+            <a href="#">Lost your password?</a><br>
+            <a href="login.jsp">Sign In</a>
         </form>
           </div>
 
@@ -73,7 +78,7 @@
                 Subcribe to pewdiepie's lastest news
         </p>
         <p class="chance">
-                Don't Miss out ........................................
+                Don't Miss out.......................
         </p>
 
 
@@ -103,12 +108,12 @@
             ABOUT US
         </p>
         <p class="Abouttext">
-            <a href="Introduction.html"> Introduction </a> <br>
-            <a href="recruit.html"> Recruitment  </a> <br> 
-            <a href="payment.html"> Payment security policy  </a> <br>
-            <a href="security.html"> Information security policy </a> <br>
-            <a href="complaints.html"> Resolve complaints policy </a> <br>
-            <a href="termsofuse.html"> Terms of use </a> <br>
+            <a href="#ABC"> Introduction </a> <br>
+            <a href="#ABC"> Recruitment  </a> <br> 
+            <a href="#ABC"> Payment security policy  </a> <br>
+            <a href="#ABC"> Information security policy </a> <br>
+            <a href="#ABC"> Resolve complaints policy </a> <br>
+            <a href="#ABC"> Terms of use </a> <br>
         </p>
 
         <p class="headerr" style="left:53%">
@@ -162,8 +167,6 @@
 
 
     </div>
-	
-	
 
 </body>
 </html>

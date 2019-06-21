@@ -13,12 +13,12 @@
 	<title>index.html</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
 	<script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
-	<!-- JS táº¡o nÃºt báº¥m di chuyá»n trang start -->
+	<!-- JS tạo nút bấm di chuyển trang start -->
 	<script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
-	<!-- JS táº¡o nÃºt báº¥m di chuyá»n trang end -->
+	<!-- JS tạo nút bấm di chuyển trang end -->
 	<script type="text/javascript">
 	$(function () {
-		var pageSize = 6; // Hiá»n thá» 6 sáº£n pháº©m trÃªn 1 trang
+		var pageSize = 6; // Hiển thị 6 sản phẩm trên 1 trang
 		showPage = function(page) {
 			$(".contentPage").hide();
 			$(".contentPage").each(function(n) {
@@ -27,7 +27,7 @@
 			});        
 		}
 		showPage(1);
-		///** Cáº§n truyá»n giÃ¡ trá» vÃ o ÄÃ¢y **///
+		///** Cần truyền giá trị vào đây **///
 		var bla = $('#Totalrecord').html();
 		var totalRows = 
 			bla; 
@@ -89,11 +89,7 @@
 
                 %>
                 <li style="float:left"><a href="#abc" style="font-family:'Times New Roman'">My Book Store</a></li>
-                <%
-            	if(session.getAttribute("username") != null)
-            		System.out.println("<li style=\"float:left\"><a href=\"#abc\">Cart</a></li>");
-                %>
-                
+                <li style="float:left"><a href="#abc">Cart</a></li>
             </ul>
         </div>
 
@@ -115,7 +111,7 @@
 
         <div class="slgcontainer">
             <div class="Slg">
-                <h1>
+                 <h1>
                     FIND YOURSELF IN A
                     <br />
                     GREAT BOOK
@@ -159,7 +155,7 @@
 
 
 
-	 <%
+	<%
         
         
         List<Book> books = (List<Book>) request.getAttribute("booklist");
@@ -434,12 +430,12 @@
             ABOUT US
         </p>
         <p class="Abouttext">
-             <a href="Introduction.html"> Introduction </a> <br>
-            <a href="recruit.html"> Recruitment  </a> <br> 
-            <a href="payment.html"> Payment security policy  </a> <br>
-            <a href="security.html"> Information security policy </a> <br>
-            <a href="complaints.html"> Resolve complaints policy </a> <br>
-            <a href="termsofuse.html"> Terms of use </a> <br>
+            <a href="#ABC"> Introduction </a> <br>
+            <a href="#ABC"> Recruitment  </a> <br> 
+            <a href="#ABC"> Payment security policy  </a> <br>
+            <a href="#ABC"> Information security policy </a> <br>
+            <a href="#ABC"> Resolve complaints policy </a> <br>
+            <a href="#ABC"> Terms of use </a> <br>
         </p>
 
         <p class="headerr" style="left:53%">

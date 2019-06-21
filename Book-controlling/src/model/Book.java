@@ -17,7 +17,7 @@ public class Book {
 
 	public Book(int bookID, String bookName, int bookPrice, int bookQuantity, String bookSize, String bookType,
 			String bookImg) {
-		super();
+		
 		BookID = bookID;
 		BookName = bookName;
 		BookPrice = bookPrice;

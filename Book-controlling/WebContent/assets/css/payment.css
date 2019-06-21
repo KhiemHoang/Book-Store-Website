@@ -1,0 +1,204 @@
+.search {
+    width: 10%;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+    .search input[type=text] {
+        width: 150px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 0;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+input[type=text]:focus {
+    width: 100%;
+    border: 2px solid red;
+}
+
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    height: 48px;
+    background-color: black;
+    z-index: 999;
+    font-family: 'Times New Roman';
+}
+
+    .navbar li {
+        float: right;
+        word-wrap: break-word;
+        height: auto;
+    }
+
+        .navbar li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 14px 16px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    .navbar ul {
+        list-style: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar li a:hover {
+        text-decoration: underline;
+        background-color: green;
+    }
+
+.navbarcontainer :hover {
+    text-decoration: underline;
+}
+
+.bodypagecontainer {
+    background-color: white;
+    left: 17%;
+    width: 66%;
+    height: 570PX;
+    top: 20px;
+    position: relative;
+}
+
+.slgcontainer {
+    background-color: black;
+    width: 100%;
+    height: 187px;
+    font-family: 'Unica One';
+    COLOR: #ef7d22;
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 15px;
+    position: absolute;
+    text-align: center;
+}
+
+
+#wordscontainer{
+    font-family:Karla;
+    left:3%;
+    right:3%;
+    position:absolute;
+    top:35%;
+    bottom:0;
+    font-size:20px;
+}
+
+
+.footer {
+    left: 17%;
+    width: 66%;
+    position: relative;
+    background-color: black;
+    height: 500px;
+}
+
+.whiteword {
+    color: white;
+    font-family: "Karla","HelveticaNeue","Helvetica Neue",sans-serif;
+}
+
+.subcribetext
+{
+    top:35px;
+    left:5%;
+    position:absolute;
+    font-size:25px;
+    font-weight: 700;
+}
+.chance
+{
+    top:65px;
+    left:5%;
+    position:absolute;
+    font-size:22px;
+    font-weight: 200;
+
+}
+.headerr
+{
+    top:120px;
+    position:absolute;
+    font-size:20px;
+    font-weight: bold;
+}
+.servicetext
+{
+    top:150px;
+    left:5%;
+    position:absolute;
+    font-size:18px;
+    font-weight: 300;
+}
+
+.Abouttext
+{
+    top:150px;
+    left:31%;
+    position:absolute;
+    font-size:18px;
+    font-weight: 300;
+}
+
+
+
+a{
+    color:white;
+}
+.smallcontainer
+{
+    height: 50px;
+    width: 50px;
+    position:absolute;
+    background-size:cover;
+}
+
+
+#input-email-box{
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 300px;
+    height:55px;
+    font-size: 20px;
+    margin-top: 40px;
+    padding: 10px 0 10px 10px;
+    position:absolute;left:53%;
+
+    }
+.buttonsummit{
+        font-size: 15px;
+        padding: 20px;
+    margin: 0;
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    height:55px;
+    position:absolute;
+    top:40px;
+    width:120px;
+    left:78%;
+    }
+.buttonsummit:hover{
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    }
+

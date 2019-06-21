@@ -100,20 +100,31 @@
 				</div>
 
 				<div class="row customer-infor">
-					<table class="col-md-7">
-						<tr>
-							<td class="col-name">User name</td>
-							<td class="col-detail"><%= users.get(0).getUserName() %></a></td>
-						</tr>
-						<tr>
-							<td class="col-name">Email</td>
-							<td class="col-detail"><%= users.get(0).getUserEmail() %></a></td>
-						</tr>
-						<tr>
-							<td class="col-name">Address</td>
-							<td class="col-detail"><%= users.get(0).getUserAddress() %></td>
-						</tr>							
-					</table>
+					<div class="col-md-7 infor-pnl">						
+						<table>
+							<tr>
+								<td class="col-name">User name</td>
+								<td class="col-detail"><%= users.get(0).getUserName() %></a></td>
+							</tr>
+							<tr>
+								<td class="col-name">Email</td>
+								<td class="col-detail"><%= users.get(0).getUserEmail() %></a></td>
+							</tr>
+							<tr>
+								<td class="col-name">Address</td>
+								<td class="col-detail"><%= users.get(0).getUserAddress() %></td>
+							</tr>								
+						</table>
+
+						<p>Change Password:</p>
+						<form class="pwd-change">
+							<p>Old password:</p>
+							<input type="password" name="old_password">
+							<p>New password:</p>
+							<input type="password" name="new_password">
+							<input class="btn-change" type="Submit" name="" value="Change">
+						</form>
+					</div>
 
 					<div class="col-md-4 user-img">
 						<img src="assets/image/adventure-cover.jpg">
@@ -137,13 +148,18 @@
 							<th class="th" style="width: 10%;">Quantity</th>
 							<th class="th" style="width: 15%;">TotalPrice</th>
 						</tr>
-						<tr>
-							<td class="td" >1</td>
-							<td class="td" >Life of Pi</td>
-							<td class="td" >2019-02-12</td>
-							<td class="td" >1</td>
-							<td class="td" >200000</td>
-						</tr>
+						<%
+							for(int i = 0; i< history.size(); i++)
+							{
+								out.println("<tr>");
+									out.println("<td class=\"td\" >" + (i+1) + "</td>");
+									out.println("<td class=\"td\" ><a href=\"\">Life of Pi</td>");
+									out.println("<td class=\"td\" >2019-02-12</td>");
+									out.println("<td class=\"td\" >" + history.get(i).getOrderQuantity() + "</td>");
+									out.println("<td class=\"td\" >" + history.get(i).getOrderPrice() + "</td>");
+								out.println("</tr>");								
+							}
+						%>
 					</table>
 				</div>
 			</div>

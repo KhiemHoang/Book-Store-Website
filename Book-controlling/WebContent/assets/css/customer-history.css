@@ -66,6 +66,31 @@ body{
 	border-bottom: 1px solid #404040;
 }
 
+.customer-infor p{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.pwd-change{
+	margin-top:10px;
+	width: 100%;
+	padding: 20px;
+	border: 1px solid;
+}
+
+.pwd-change p{
+	font-size: 13px;
+	margin: 0;
+}
+
+.pwd-change input{
+	margin-bottom: 10px;
+}
+
+.btn-change{
+	margin-left: 20px;
+}
+
 .user-img{
 	margin:0 auto;
 	align-items: center;
@@ -90,16 +115,14 @@ body{
 }
 
 .upt-img input{
-	border-radius: 5px;
 	margin-top: 10px;
 }
 
-.btn-submit{
-	background-color: #9577c2;
-	color: white;		
+.btn-submit{		
 	width: 20%;
 	display: block;
 	margin: 0 auto;
+	margin-top: 5px;
 }
 
 .customer-purchase table{

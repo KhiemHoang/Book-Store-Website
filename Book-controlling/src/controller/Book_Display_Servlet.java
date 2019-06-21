@@ -56,9 +56,18 @@ public class Book_Display_Servlet extends HttpServlet {
 		String URL = request.getQueryString();
 		URL= java.net.URLDecoder.decode(URL, StandardCharsets.UTF_8.name());
 		String[] parts = URL.split("name=");
-		String part2 = parts[1]; 
+		String part2 = parts[1];
 		System.out.println(part2);
+		
+		
 		try {
+		
+		//if (theCommand == "Like")
+		//{
+			
+		//	System.out.println("ETNGR");
+		//};
+			
 		listtype(request,response);
 		getBookList(request, response, part2);
 		getBookAuthor(request, response, part2);
@@ -66,6 +75,23 @@ public class Book_Display_Servlet extends HttpServlet {
 		getCustomBookList(request, response, part2);
 		getCmtList(request, response, part2);
 		getUserCmt(request, response, part2);
+		getTotalScore(request, response, part2);
+		getTotalFive(request, response, part2);
+		getTotalFour(request, response, part2);
+		getTotalThree(request, response, part2);
+		getTotalTwo(request, response, part2);
+		getTotalOne(request, response, part2);
+		
+		for(int i=0; i< getTotalCmt(request, response, part2); i++)
+		{
+			String cmd = "command" +i;
+			if(null != request.getParameter(cmd))
+			{
+				System.out.println("AAAA");
+			}
+			System.out.println(cmd);
+		}
+		
 		}
 		catch (Exception exec) {
 			exec.printStackTrace();
@@ -125,4 +151,68 @@ public class Book_Display_Servlet extends HttpServlet {
   				
   		request.setAttribute("UserList", users);
   	}
+  	
+  	//get Total RateScore
+  	public void getTotalScore(HttpServletRequest request, HttpServletResponse response, String name)
+			throws Exception {
+  		int total = BookCmtDBUtil.getTotalRate(name);
+  				
+  		request.setAttribute("TotalScore", total);
+  	}
+  	
+  	//count 5 Star
+  	public void getTotalFive(HttpServletRequest request, HttpServletResponse response, String name)
+			throws Exception {
+  		int total = BookCmtDBUtil.getTotalFive(name);
+  				
+  		request.setAttribute("TotalFive", total);
+  	}
+  	
+  	//Count 4 Star
+  	public void getTotalFour(HttpServletRequest request, HttpServletResponse response, String name)
+			throws Exception {
+  		int total = BookCmtDBUtil.getTotalFour(name);
+  				
+  		request.setAttribute("TotalFour", total);
+  	}
+  	
+  	//Count 3 Star
+  	public void getTotalThree(HttpServletRequest request, HttpServletResponse response, String name)
+			throws Exception {
+  		int total = BookCmtDBUtil.getTotalThree(name);
+  				
+  		request.setAttribute("TotalThree", total);
+  	}
+  	
+  	//Count 2 Star
+  	public void getTotalTwo(HttpServletRequest request, HttpServletResponse response, String name)
+			throws Exception {
+  		int total = BookCmtDBUtil.getTotalTwo(name);
+  				
+  		request.setAttribute("TotalTwo", total);
+  	}
+  	
+  	//Count 1 Star
+  	public void getTotalOne(HttpServletRequest request, HttpServletResponse response, String name)
+			throws Exception {
+  		int total = BookCmtDBUtil.getTotalOne(name);
+  				
+  		request.setAttribute("TotalOne", total);
+  	}
+
+  	//Update CmtLike
+  	public void updateLike(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+  		int ID = Integer.parseInt(request.getParameter("CmtID"));
+  				
+  		BookCmtDBUtil.updateLike(ID);
+  	}
+  	
+  	public int getTotalCmt(HttpServletRequest request, HttpServletResponse response, String name) throws Exception{
+  		List<Book_Cmt> cmt = BookCmtDBUtil.getCmtInfor(name);
+  		int total = cmt.size();
+  		
+  		return total;
+  	}
+
 }

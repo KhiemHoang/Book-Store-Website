@@ -32,6 +32,12 @@
 		List<Book> CustomBook = (List<Book>)request.getAttribute("Custom_Book");
 		List<Book_Cmt> Cmt = (List<Book_Cmt> )request.getAttribute("Comment");
 		List<Users> UserCmt = (List<Users>)request.getAttribute("UserList");
+		int TotalScore = (int)request.getAttribute("TotalScore");
+		int TotalFive = (int)request.getAttribute("TotalFive");
+		int TotalFour = (int)request.getAttribute("TotalFour");
+		int TotalThree = (int)request.getAttribute("TotalThree");
+		int TotalTwo = (int)request.getAttribute("TotalTwo");
+		int TotalOne = (int)request.getAttribute("TotalOne");
 		%>
 	
 	</head>
@@ -79,28 +85,13 @@
 								
 								</div>
 						</li>
-						
-												
+									
 						<li><a href="">About Us</a></li>
 						<li><a href="">Contact</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
 		<!-- End Header -->
 
 		<div id="content">
@@ -406,13 +397,19 @@
 					<div class="row rate-pnl">
 						<div class="col-md-3 rate-score">
 							<h1>Average rate</h1>
-							<p class="number">4.5/5</p>
+							<p class="number"><%= TotalScore%5 %>/5</p>
 							<div class="product-status">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star-half-alt"></i>
+							<%
+								for(int i=0; i<TotalScore%5; i++)
+								{
+									out.println("<i class=\"fas fa-star gold\"></i>");
+								}
+							
+								for(int i = 0; i<(5-TotalScore%5); i++)
+								{
+									out.println("<i class=\"fas fa-star\"></i>");
+								}
+							%>
 								<a href="">(View 20+ comments)</a>									
 							</div>
 						</div>
@@ -422,41 +419,41 @@
 								<p>5</p>
 								<i class="fas fa-star"></i>
 								<div class="progress-contain">
-									<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%"></div>									
+									<div class="progress-bar" role="progressbar" aria-valuenow="<%= ((float)(TotalFive) / Cmt.size())*100 %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= ((float)(TotalFive) / Cmt.size())*100 %>%"></div>									
 								</div>
-								<p class="percentage">70%</p>
+								<p class="percentage"><%= ((float)(TotalFive) / Cmt.size())*100 %>%</p>
 							</div>
 							<div class="progress-info">
 								<p>4</p>
 								<i class="fas fa-star"></i>
 								<div class="progress-contain">
-									<div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%"></div>									
+									<div class="progress-bar" role="progressbar" aria-valuenow="<%= ((float)TotalFour / Cmt.size())*100 %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= ((float)TotalFour / Cmt.size())*100 %>%"></div>									
 								</div>
-								<p class="percentage">50%</p>
+								<p class="percentage"><%= ((float)TotalFour / Cmt.size())*100 %>%</p>
 							</div>
 							<div class="progress-info">
 								<p>3</p>
 								<i class="fas fa-star"></i>
 								<div class="progress-contain">
-									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>									
+									<div class="progress-bar" role="progressbar" aria-valuenow="<%= ((float)TotalThree / Cmt.size())*100 %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= ((float)TotalThree / Cmt.size())*100 %>%"></div>									
 								</div>
-								<p class="percentage">0%</p>
+								<p class="percentage"><%= ((float)TotalThree / Cmt.size())*100 %>%</p>
 							</div>
 							<div class="progress-info">
 								<p>2</p>
 								<i class="fas fa-star"></i>
 								<div class="progress-contain">
-									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>									
+									<div class="progress-bar" role="progressbar" aria-valuenow="<%= ((float)TotalTwo / Cmt.size())*100 %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= ((float)TotalTwo / Cmt.size())*100 %>%"></div>									
 								</div>
-								<p class="percentage">0%</p>
+								<p class="percentage"><%= ((float)TotalTwo / Cmt.size())*100 %>%</p>
 							</div>
 							<div class="progress-info">
 								<p>1</p>
 								<i class="fas fa-star"></i>
 								<div class="progress-contain">
-									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>									
+									<div class="progress-bar" role="progressbar" aria-valuenow="<%= ((float)TotalOne / Cmt.size())*100 %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= ((float)TotalOne / Cmt.size())*100 %>%"></div>									
 								</div>
-								<p class="percentage">0%</p>
+								<p class="percentage"><%= ((float)TotalOne / Cmt.size())*100 %>%</p>
 							</div>
 						</div>
 						<!-- End progress pnl -->
@@ -503,10 +500,15 @@
 									out.println("</div>");
 									
 									out.println("<div class=\"cmt-option\">");
-										out.println("<i class=\"fas fa-thumbs-up\"></i>");
-										out.println("<p>" + Cmt.get(i).getCmtLike() + "</p>");
+										out.println("<form>");
+											out.println("<i class=\"fas fa-thumbs-up\"></i>");
+											out.println("<p>" + Cmt.get(i).getCmtLike() + "</p>");
+											out.println("<input type=\"hidden\" name=\"CmtID\" value=\"${"+Cmt.get(i).getCmtID()+"}\">");
+											out.println("<input type=\"button\" name=\"command"+i+"\" value=\"Like\">");
+											System.out.println("<input type=\"button\" name=\"command"+i+"\" value=\"Like\">");
+										out.println("</form>");
 									out.println("</div>");
-									
+									Cmt.get(i).getCmtID();
 								out.println("</div>");
 							out.println("</div>");
 						}

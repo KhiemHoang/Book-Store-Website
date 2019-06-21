@@ -19,7 +19,7 @@ public class Book_DBUtil {
 	}
 	
 	//get List book (Name, Price, Img)
-	public List<Book> getBooks() throws Exception{
+	public List<Book> getBooks(String name) throws Exception{
 		
 		List<Book> books = new ArrayList<>();
 		
@@ -33,7 +33,7 @@ public class Book_DBUtil {
 			String sql = "SELECT * FROM book_controlling.book, book_controlling.publish, book_controlling.author"
 					+ " where book_controlling.book.BookID = book_controlling.publish.BookID "
 					+ " and book_controlling.publish.AuthorID = book_controlling.author.AuthorID"
-					+ " and book_controlling.author.AuthorID =2;"; //sql query
+					+ " and book_controlling.author.authorname ='"+name+"'"; //sql query
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			while(rss.next())
@@ -116,7 +116,7 @@ public class Book_DBUtil {
 	}
 
 	//get List of Custom Book
-	public List<Book> getCustomBooks() throws Exception{
+	public List<Book> getCustomBooks( String name) throws Exception{
 		List<Book> books = new ArrayList<>();
 		
 		Connection con = null;
@@ -126,7 +126,12 @@ public class Book_DBUtil {
 		try {
 			con = dataSource.getConnection();
 			
-			String sql = "SELECT * FROM book_controlling.book where book_controlling.book.BookType like '%Action%' LIMIT 4;"; //sql query
+			String sql = " SELECT * FROM book_controlling.book where book_controlling.book.BookType = ( select booktype from book where bookname ='"+name+"' group by booktype) LIMIT 4";
+		
+			
+			
+			
+			
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			while(rss.next())
@@ -186,7 +191,7 @@ public class Book_DBUtil {
 		}
 	
 	//get book cover img
-	public String getBookImg() throws Exception{
+	public String getBookImg(String name) throws Exception{
 		String bookImg = new String();
 		
 		Connection con = null;
@@ -200,9 +205,9 @@ public class Book_DBUtil {
 					+ "FROM book_controlling.book, book_controlling.author, book_controlling.publish "
 					+ "where book_controlling.book.BookID = book_controlling.publish.BookID and "
 					+ "book_controlling.publish.AuthorID = book_controlling.author.AuthorID and "
-					+ "book_controlling.author.AuthorID = 1;"; //sql query
-			stm = con.createStatement(); //create sql statement
-			rss = stm.executeQuery(sql); //exec query
+					+ "book_controlling.author.Authorname = '"+name +"'"; 
+			stm = con.createStatement(); 
+			rss = stm.executeQuery(sql);
 			
 			while(rss.next())
 			{
@@ -238,6 +243,7 @@ public class Book_DBUtil {
 				String Book_Name = rss.getString("BookName");
 				int Book_Price = rss.getInt("BookPrice");
 				String Book_Img = rss.getString("BookImg");
+				System.out.println(Book_Img);
 				String Book_Img1 = rss.getString("BookImgLink1");
 				String Book_Img2 = rss.getString("BookImgLink2");
 				String Book_Size = rss.getString("BookSize");
@@ -258,7 +264,7 @@ public class Book_DBUtil {
 	}
 
 	//get Book'Author
-	public String getBookAuthor() throws Exception{
+	public String getBookAuthor(String name) throws Exception{
 		String bookAuthor = new String();
 		
 		Connection con = null;
@@ -272,7 +278,7 @@ public class Book_DBUtil {
 					+ "FROM book_controlling.book, book_controlling.author, book_controlling.publish "
 					+ "where book_controlling.book.BookID = book_controlling.publish.BookID and "
 					+ "book_controlling.publish.AuthorID = book_controlling.author.AuthorID and "
-					+ "book_controlling.book.BookID = 1;"; //sql query
+					+ "book_controlling.book.bookname = '"+name+"'"; //sql query
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			

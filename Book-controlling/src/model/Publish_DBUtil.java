@@ -20,7 +20,7 @@ public class Publish_DBUtil {
 	
 	
 	//get Publish Info
-	public List<Publisher> getAllInfor() throws Exception{
+	public List<Publisher> getAllInfor(String name) throws Exception{
 		List<Publisher> publish = new ArrayList<>();
 		
 		Connection con = null;
@@ -29,9 +29,7 @@ public class Publish_DBUtil {
 	
 		try {
 			con = dataSource.getConnection();
-			
-			String sql = "SELECT * FROM book_controlling.publish "
-					+ " where book_controlling.publish.BookID =1;"; //sql query
+			String sql = "select * from publish, book where publish.bookid = book.bookid and bookname ='" +name+"'";
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			while(rss.next())

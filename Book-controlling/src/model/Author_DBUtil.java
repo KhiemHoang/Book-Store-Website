@@ -54,7 +54,7 @@ public class Author_DBUtil {
 	}
 
 	//Get Author Name
-	public String getAuthorName() throws Exception{
+	public String getAuthorName(String name) throws Exception{
 		String authorName = new String();
 		
 		Connection con = null;
@@ -64,7 +64,7 @@ public class Author_DBUtil {
 		try {
 			con = dataSource.getConnection();
 			
-			String sql = "SELECT AuthorName FROM book_controlling.author where AuthorID = 2;"; //sql query
+			String sql = "SELECT AuthorName FROM book_controlling.author where AuthorName = '"+name+"'"; //sql query
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			
@@ -80,7 +80,7 @@ public class Author_DBUtil {
 	}
 	
 	//Get Author DOB 
-	public Date getAuthorDOB() throws Exception{
+	public Date getAuthorDOB(String name) throws Exception{
 		
 		Date authorDOB = new Date();
 		
@@ -91,7 +91,7 @@ public class Author_DBUtil {
 		try {
 			con = dataSource.getConnection();
 			
-			String sql = "SELECT AuthorDOB FROM book_controlling.author where AuthorID = 2;"; //sql query
+			String sql = "SELECT AuthorDOB FROM book_controlling.author where AuthorName = '"+name+"'"; //sql query
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			
@@ -107,7 +107,7 @@ public class Author_DBUtil {
 	}
 	
 	//get Author Nationality
-	public String getAuthorNation() throws Exception{
+	public String getAuthorNation(String Name) throws Exception{
 		String authorNation = new String();
 		
 		Connection con = null;
@@ -117,7 +117,7 @@ public class Author_DBUtil {
 		try {
 			con = dataSource.getConnection();
 			
-			String sql = "SELECT AuthorNationality FROM book_controlling.author where AuthorID = 2;"; //sql query
+			String sql = "SELECT AuthorNationality FROM book_controlling.author where AuthorName ='"+Name+"'"; //sql query
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			
@@ -133,7 +133,7 @@ public class Author_DBUtil {
 	}
 	
 	//get Author total Book
-	public int getAuthorTotal() throws Exception{
+	public int getAuthorTotal(String name) throws Exception{
 		int authorTotal = 0;
 		
 		Connection con = null;
@@ -146,7 +146,7 @@ public class Author_DBUtil {
 			String sql = "Select count(book_controlling.publish.BookID) as 'Total' "
 					+ "FROM book_controlling.author, book_controlling.publish "
 					+ "where book_controlling.author.AuthorID = book_controlling.publish.AuthorID "
-					+ "and book_controlling.author.AuthorID = 2;"; //sql query
+					+ "and book_controlling.author.authorname = '"+name+"'"; //sql query
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			
@@ -162,7 +162,7 @@ public class Author_DBUtil {
 	}
 	
 	//get Author Image
-	public String getAuthorImg() throws Exception{
+	public String getAuthorImg(String Name) throws Exception{
 		String authorImg = new String();
 		
 		Connection con = null;
@@ -172,7 +172,7 @@ public class Author_DBUtil {
 		try {
 			con = dataSource.getConnection();
 			
-			String sql = "SELECT AuthorImg FROM book_controlling.author where AuthorID = 2;"; //sql query
+			String sql = "SELECT AuthorImg FROM book_controlling.author where AuthorName = '"+Name+"'"; //sql query
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			

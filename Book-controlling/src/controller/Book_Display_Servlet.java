@@ -23,7 +23,7 @@ public class Book_Display_Servlet extends HttpServlet {
        
 	private Book_DBUtil bookDButil;
 	private Publish_DBUtil publishDButil;
-	
+	private IndexDao abc;
 	@Resource(name="jdbc/book_controlling")
 	private DataSource dtSource;
    
@@ -36,25 +36,32 @@ public class Book_Display_Servlet extends HttpServlet {
 		try {
 			publishDButil = new Publish_DBUtil(dtSource);
 			bookDButil = new Book_DBUtil(dtSource);
+			abc = new IndexDao(dtSource);
 		}
 		catch(Exception exec) {
 			throw new ServletException(exec);
 		}
 	}
+	private void listtype(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+		List<String> type = abc.getbooktype();
+		request.setAttribute("booktypes", type);
+	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String URL = request.getQueryString();
 		URL= java.net.URLDecoder.decode(URL, StandardCharsets.UTF_8.name());
 		String[] parts = URL.split("name=");
 		String part2 = parts[1]; 
 		System.out.println(part2);
 		try {
+		listtype(request,response);
 		getBookList(request, response, part2);
-		getBookAuthor(request, response);
-		getPublishInfor(request, response);
-		getCustomBookList(request, response);
+		getBookAuthor(request, response, part2);
+		getPublishInfor(request, response, part2);
+		getCustomBookList(request, response, part2);
 		}
 		catch (Exception exec) {
 			exec.printStackTrace();
@@ -76,25 +83,25 @@ public class Book_Display_Servlet extends HttpServlet {
   	}
 	
   	//get Book Author
-  	public void getBookAuthor(HttpServletRequest request, HttpServletResponse response)
+  	public void getBookAuthor(HttpServletRequest request, HttpServletResponse response, String name)
 			throws Exception {
-  		String Author = bookDButil.getBookAuthor();
+  		String Author = bookDButil.getBookAuthor(name);
   				
   		request.setAttribute("BOOK_AUTHOR", Author);
   	}
 
   	//get Publish's infor
-  	public void getPublishInfor(HttpServletRequest request, HttpServletResponse response)
+  	public void getPublishInfor(HttpServletRequest request, HttpServletResponse response,String name)
 			throws Exception {
-  		List<Publisher> publish = publishDButil.getAllInfor();
+  		List<Publisher> publish = publishDButil.getAllInfor(name);
   				
   		request.setAttribute("PUBLISH_LIST", publish);
   	}
 
   	//get Custom Book List
-  	public void getCustomBookList(HttpServletRequest request, HttpServletResponse response)
+  	public void getCustomBookList(HttpServletRequest request, HttpServletResponse response, String name)
 			throws Exception {
-  		List<Book> books = bookDButil.getCustomBooks();
+  		List<Book> books = bookDButil.getCustomBooks(name);
   				
   		request.setAttribute("Custom_Book", books);
   	}

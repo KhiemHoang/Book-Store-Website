@@ -79,7 +79,7 @@ body{
 
 .product-cart{
 	border-left: 1px solid #C0C0C0;
-	padding: 0;
+	padding: 0 !important;
 }
 
 .product-cart .row{
@@ -176,7 +176,7 @@ body{
 
 .quantity-selector{
 	margin-right: 10px;
-	padding: 0;
+	padding: 0 !important;
 }
 
 .quantity-selector .input-form{	

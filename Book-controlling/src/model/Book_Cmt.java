@@ -18,6 +18,8 @@ public class Book_Cmt {
 		CmtDate = cmtDate;
 		RateScore = rateScore;
 	}
+	
+	
 	public int getCmtID() {
 		return CmtID;
 	}

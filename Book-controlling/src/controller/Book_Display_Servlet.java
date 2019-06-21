@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
@@ -82,14 +83,18 @@ public class Book_Display_Servlet extends HttpServlet {
 		getTotalTwo(request, response, part2);
 		getTotalOne(request, response, part2);
 		
+		String cmd = "command";
+		
 		for(int i=0; i< getTotalCmt(request, response, part2); i++)
 		{
-			String cmd = "command" +i;
+			cmd = cmd+i;
 			if(null != request.getParameter(cmd))
 			{
 				System.out.println("AAAA");
 			}
-			System.out.println(cmd);
+
+			System.out.println(request.getParameter(cmd));
+			cmd = "command";
 		}
 		
 		}
@@ -214,5 +219,30 @@ public class Book_Display_Servlet extends HttpServlet {
   		
   		return total;
   	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		String BID = request.getParameter("BookID");
+		int BookID = Integer.parseInt(BID);
+		String CuID = request.getParameter("CustomerID");
+		int CustomerID = Integer.parseInt(CuID);
+		String CmtText = request.getParameter("CmtText");
+		String Score = request.getParameter("RateScore");
+		int RateScore = Integer.parseInt(Score);
+		
+		Book_Cmt cmt = new Book_Cmt(0, BookID, CustomerID, CmtText, 0, "CURDATE()", RateScore);
+		try {
+			if(BookCmtDBUtil.addCmt(cmt) == true)
+			{
+				System.out.println("Success");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+  	
+  	
+  	
 
 }

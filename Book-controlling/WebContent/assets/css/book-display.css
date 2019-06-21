@@ -815,7 +815,7 @@ body{
 
 .user-cmt{
 	width: 100%;
-	display: none !important;
+	display: none;
 	vertical-align: middle;
 	padding: 30 30;
 	padding-left: 70px;

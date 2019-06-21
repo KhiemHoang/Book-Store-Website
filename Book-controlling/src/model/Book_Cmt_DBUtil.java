@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
@@ -266,7 +267,6 @@ public class Book_Cmt_DBUtil {
 					+ " where book_controlling.book.bookid = book_controlling.book_comment.BookID"
 					+ " and book_controlling.book_comment.RateScore = 1"
 					+ " and book_controlling.book.BookName = '"+name+"'"; //sql query
-			System.out.println(sql);
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			while(rss.next())
@@ -281,6 +281,7 @@ public class Book_Cmt_DBUtil {
 		}
 	}	
 	
+	//Update Like
 	public void updateLike(int CmtID) throws Exception{
 		Connection con = null;
 		Statement stm = null;
@@ -292,12 +293,45 @@ public class Book_Cmt_DBUtil {
 			String sql = "Update book_controlling.book_comment"
 					+ " set book_controlling.book_comment.CmtLike = book_controlling.book_comment.CmtLike + 1"
 					+ " where book_controlling.book_comment.CmtID = " + CmtID + "";
+
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
 		}
 
 		finally {
 			close(con, stm, rss);
 		}
 	}
+	
+	//Add new Cmt
+	public boolean addCmt(Book_Cmt cmt) throws Exception{
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "insert into book_comment values(?, ?, ?, ?, ?, ?)";
+			stm = con.prepareStatement(sql);
+			
+			((PreparedStatement) stm).setInt(1, cmt.getBookID());
+			((PreparedStatement) stm).setString(2, cmt.getCmtText());
+			((PreparedStatement) stm).setInt(3, cmt.getCmtLike());
+			((PreparedStatement) stm).setString(4, cmt.getCmtDate());
+			((PreparedStatement) stm).setInt(5, cmt.getCustomerID());
+			((PreparedStatement) stm).setInt(6, cmt.getRateScore());
+			
+
+			stm.executeQuery(sql);//exec query
+			return true;
+		}
+
+		finally {
+			close(con, stm, rss);
+		}
+	}
+	
 	//Close Connection
 			private void close(Connection con, Statement stm, ResultSet rss) {
 				// TODO Auto-generated method stub

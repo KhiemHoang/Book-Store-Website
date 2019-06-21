@@ -525,13 +525,18 @@
 				
 				<form id="new-cmt-pnl" class="row user-cmt">
 					<div class="col-md-12 cmt-box">
-						<input class="cmt-box-50" id="input-cmt-box" type="text" name="comment" placeholder="Type your comments here.">
+						<input class="cmt-box-50" id="input-cmt-box" type="CmtText" name="comment" placeholder="Type your comments here.">
 						<p>Rate:</p>
-						<input class="cmt-box-10" type="number" name="rate" min="1" max="5" value="1">
+						<input class="cmt-box-10" type="number" name="RateScore" min="1" max="5" value="1">
 						<div class="cmt-box-20" >
 							<input type="Submit">							
 						</div>
 					</div>
+					<input type="hidden" name="BookID" value="<%= publish.get(0).getBookID()%>">
+					<%
+						String abc = (String)session.getAttribute("username");
+						out.println("<input type=\"hidden\" name=\"CustomerID\" value="+abc+">");
+					%>
 				</form>
 			</div>
 			<!-- End content container -->

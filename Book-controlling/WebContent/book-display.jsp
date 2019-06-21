@@ -159,7 +159,6 @@
 							</div>
 						</div>
 						<!-- End product cart header -->
-
 						<div class="row">
 							<div class="col-md-7 no-padding-right">
 								<div class="product-price">
@@ -175,7 +174,8 @@
 									</div>
 								</div>
 								<!-- End product price -->
-
+ 								          
+								<%out.println("<input type =\"hidden\" name =\"bname\" value =\""+books.get(0).getBookName()+"\">"); %>
 								<div class="row product-quantity">
 									<div class="col-md-4 quantity-selector">
 										<span class="text">Quantity:</span>
@@ -185,14 +185,15 @@
 											<button onclick="minus()" class="button-left">-</button>
 										</div>										
 									</div>
-
+									
 									<button class="col-md-7 submit-btn">
 										<i class="fas fa-shopping-cart"></i>
-										<span class="submit">Add to cart</span>
+										<% out.println("<a href = \"addtocart?"+books.get(0).getBookName() +"\"><span class=\"submit\" >Add to cart</span></a>"); %>
+										
 									</button>
+									
 								</div>
 								<!-- End product quantity -->
-
 								<div class="time-place">
 									<h1>Time and Place</h1>
 									<span class="text">Where and when you want your books delivered?</span>

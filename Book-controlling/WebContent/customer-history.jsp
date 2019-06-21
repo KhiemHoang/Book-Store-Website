@@ -118,7 +118,7 @@
 						</table>
 
 						<p>Change Password:</p>
-						<form class="pwd-change">
+						<form class="pwd-change" action="changepassword" method="get">
 							<p>Old password:</p>
 							<input type="password" name="old_password">
 							<p>New password:</p>

@@ -13,6 +13,14 @@
 </head>
 <body >
 <body style="background-color:lightpink" onload="myFunction()">
+	<%
+	if(null == session.getAttribute("username")){
+		
+		}else{
+			String redirectURL = "IndexServlet";
+		    response.sendRedirect(redirectURL);
+		}
+	%>
     <div class="navbar">
 
 

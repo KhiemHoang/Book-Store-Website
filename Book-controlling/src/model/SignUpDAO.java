@@ -31,7 +31,6 @@ public class SignUpDAO {
 			String sql = "select max(UserID) from users";
 			myStmt1 = myConn.createStatement();
 			
-			// Step 4:  Execute SQL query
 			myRs1 = myStmt1.executeQuery(sql);
 			while (myRs1.next()) {
 				 counter = myRs1.getInt(1)+1;
@@ -51,7 +50,6 @@ public class SignUpDAO {
 			
 			sql = "insert into users values (?, ?, ?,?,?,?, ?)";		
 			myStmt = myConn.prepareStatement(sql);
-			// set the param values for the user
 			myStmt.setInt(1, counter);
 			myStmt.setString(2, user.getUserName());
 			myStmt.setString(3, user.getUserPassword());
@@ -61,7 +59,6 @@ public class SignUpDAO {
 			myStmt.setString(7,null);
 
 			
-			// execute sql insert
 			myStmt.execute();
 			return 1;
 			}

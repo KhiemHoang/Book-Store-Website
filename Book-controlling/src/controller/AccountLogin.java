@@ -4,6 +4,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -36,7 +38,10 @@ public class AccountLogin extends HttpServlet {
 		
 				PrintWriter out = response.getWriter();
 				response.setContentType("text/plain");
-					
+				List<String> cartlist = new ArrayList<String>();
+				
+
+				System.out.println(cartlist.size());
 				Connection myConn = null;
 				Statement myStmt = null;
 				ResultSet myRs = null;
@@ -62,6 +67,7 @@ public class AccountLogin extends HttpServlet {
 					{
 						  HttpSession session=request.getSession();  
 					      session.setAttribute("username",username);
+					      session.setAttribute("cartlist", cartlist);
 					      RequestDispatcher rd = request.getRequestDispatcher("/IndexServlet");
 					      rd.forward(request,response);
 					}

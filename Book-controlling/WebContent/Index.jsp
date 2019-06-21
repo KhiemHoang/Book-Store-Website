@@ -94,7 +94,7 @@
                 <li style="float:left"><a href="http://localhost:8080/Book-controlling/IndexServlet" style="font-family:'Times New Roman'">My Book Store</a></li>
                 <%
             		if(session.getAttribute("username") != null)
-            		out.println("<li style=\"float:left\"><a href=\"#abc\">Cart</a></li>");
+            		out.println("<li style=\"float:left\"><a href=\"addtocart?\">Cart</a></li>");
                 %>
                 
             </ul>

@@ -44,9 +44,9 @@ public class Online_Reading_Servlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			getBookList(request, response);
-			getBookAuthor(request, response);
-			getPublishInfor(request, response);
+			//getBookList(request, response);
+			getBookAuthor(request, response, );
+			getPublishInfor(request, response, );
 			
 		}
 		catch (Exception exec) {
@@ -58,25 +58,25 @@ public class Online_Reading_Servlet extends HttpServlet {
 	}
 	
 	//get Book List
-  	public void getBookList(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-  		List<Book> books = bookDButil.getAllInfor();
-  				
-  		request.setAttribute("BOOK_LIST", books);
-  	}
+//  	public void getBookList(HttpServletRequest request, HttpServletResponse response)
+//			throws Exception {
+//  		List<Book> books = bookDButil.getAllInfor();
+//  				
+//  		request.setAttribute("BOOK_LIST", books);
+//  	}
 	
   //get Book Author
-  	public void getBookAuthor(HttpServletRequest request, HttpServletResponse response)
+  	public void getBookAuthor(HttpServletRequest request, HttpServletResponse response, String name)
 			throws Exception {
-  		String Author = bookDButil.getBookAuthor();
+  		String Author = bookDButil.getBookAuthor(name);
   				
   		request.setAttribute("BOOK_AUTHOR", Author);
   	}
 
   	//get Publish's infor
-  	public void getPublishInfor(HttpServletRequest request, HttpServletResponse response)
+  	public void getPublishInfor(HttpServletRequest request, HttpServletResponse response, String name)
 			throws Exception {
-  		List<Publisher> publish = publishDButil.getAllInfor();
+  		List<Publisher> publish = publishDButil.getAllInfor(name);
   				
   		request.setAttribute("PUBLISH_LIST", publish);
   	}

@@ -1,0 +1,116 @@
+body{
+	background-color: rgba(128, 128, 128, .5);
+}
+
+
+.container{
+	background-color: rgba(255,255,255, 0.7);
+}
+
+/*==============Begin content============*/
+
+#content .container{
+	padding: 0;
+}
+
+#content .row{
+	margin: 0;
+}
+
+.head-text{
+	padding: 10px 20px;
+    padding-top: 40px;
+    background-color: rgb(191,191,191);
+    display: block;
+    width: 100%;
+}
+
+.head-text h1{
+	font-size: 18px;
+}
+
+.customer-infor{
+	width: 100%;
+	padding: 20px;
+	vertical-align: middle;
+}
+
+.customer-infor table{
+	border: 1px solid #404040;
+	border-collapse: collapse;
+	padding: 10px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.customer-infor .col-detail{
+	width: 40%;
+	padding: 10px;
+	padding-left: 20px;
+	font-size: 13px;
+	color: black;
+	border-bottom: 1px solid #404040;
+}
+
+.customer-infor .col-detail a{
+	color: #189eff;
+}
+
+.customer-infor .col-name{
+	width: 20%;
+	background-color: #606060;
+	padding: 10px;
+	font-size: 13px;
+	color: #E0E0E0;
+	border-right: 1px solid #404040;
+	border-bottom: 1px solid #404040;
+}
+
+.user-img{
+	margin:0 auto;
+	align-items: center;
+}
+
+.user-img img{
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+	margin: 0 auto;
+	display: block;
+}
+
+.upt-img{
+	padding-top: 10px;
+	margin: 0 auto;
+}
+
+.upt-img p{
+	display: inline;
+	user-select: none;
+}
+
+.upt-img input{
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+.btn-submit{
+	background-color: #9577c2;
+	color: white;		
+	width: 20%;
+	display: block;
+	margin: 0 auto;
+}
+
+.customer-purchase table{
+	width: 100%;
+	margin: 20px 50px 50px 30px;
+	border-collapse: collapse;
+}
+
+.customer-purchase .td, .th{
+	border: 1px solid #404040;
+	border-collapse: collapse;
+	padding: 10px;
+}
+

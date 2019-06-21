@@ -182,7 +182,7 @@
 					for (int i =0;i<p;i++)				
 				{
 						String URL = books.get(i).getBookImg();
-						String URLbox = 	"<a href=\"Book_Display_Servlet?"+(String)books.get(i).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
+						String URLbox = 	"<a href=\"Book_Display_Servlet?name="+(String)books.get(i).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
 						String elements = bar+URLbox;
 						String name = "<div style =\"text-align: center;\"class=\"namecontainer\"><p class=\"infofont\" style=\"font-size:17px\">"+ books.get(i).getBookName()+"</p><p class=\"infofont\">Price:"+books.get(i).getBookPrice() + "$</p></div>";
 						elements = elements+name;
@@ -201,7 +201,7 @@
 				for (int i =0;i<3;i++)				
 				{
 					String URL = books.get(i).getBookImg();
-					String URLbox = 	"<a href=\"Book_Display_Servlet?"+(String)books.get(i).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
+					String URLbox = 	"<a href=\"Book_Display_Servlet?name="+(String)books.get(i).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
 					String elements = bar+URLbox;
 					String name = "<div style =\"text-align: center;\"class=\"namecontainer\"><p class=\"infofont\" style=\"font-size:17px\">"+ books.get(i).getBookName()+"</p><p class=\"infofont\">Price:"+books.get(i).getBookPrice() + "$</p></div>";
 					elements = elements+name;
@@ -215,7 +215,7 @@
 				for (int j =0;j<temp;j++)				
 				{	
 					String URL = books.get(k-1).getBookImg();
-					String URLbox = 	"<a href=\"Book_Display_Servlet?"+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
+					String URLbox = 	"<a href=\"Book_Display_Servlet?name="+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
 					String elements = bar+URLbox;
 					String name = "<div style =\"text-align: center;\"class=\"namecontainer\"><p class=\"infofont\" style=\"font-size:17px\">"+ books.get(k-1).getBookName()+"</p><p class=\"infofont\">Price:"+books.get(k-1).getBookPrice() + "$</p></div>";
 					elements = elements+name;
@@ -236,7 +236,7 @@
 				for (int j =0;j<3;j++)				
 				{
 					String URL = books.get(k-1).getBookImg();
-					String URLbox = 	"<a href=\"Book_Display_Servlet?"+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
+					String URLbox = 	"<a href=\"Book_Display_Servlet?name="+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
 					String elements = bar+URLbox;
 					String name = "<div style =\"text-align: center;\"class=\"namecontainer\"><p class=\"infofont\" style=\"font-size:17px\">"+ books.get(k-1).getBookName()+"</p><p class=\"infofont\">Price:"+books.get(k-1).getBookPrice() + "$</p></div>";
 					elements = elements+name;
@@ -251,7 +251,7 @@
 				for (int j =0;j<3;j++)				
 				{
 					String URL = books.get(k-1).getBookImg();
-					String URLbox = 	"<a href=\"Book_Display_Servlet?"+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
+					String URLbox = 	"<a href=\"Book_Display_Servlet?name="+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
 					String elements = bar+URLbox;
 					String name = "<div style =\"text-align: center;\"class=\"namecontainer\"><p class=\"infofont\" style=\"font-size:17px\">"+ books.get(k-1).getBookName()+"</p><p class=\"infofont\">Price:"+books.get(k-1).getBookPrice() + "$</p></div>";
 					elements = elements+name;
@@ -269,7 +269,7 @@
 					for (int i =0;i<p;i++)				
 				{
 						String URL = books.get(k-1).getBookImg();
-						String URLbox = 	"<a href=\"Book_Display_Servlet?"+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
+						String URLbox = 	"<a href=\"Book_Display_Servlet?name="+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
 					String elements = bar+URLbox;
 					String name = "<div style =\"text-align: center;\"class=\"namecontainer\"><p class=\"infofont\" style=\"font-size:17px\">"+ books.get(k-1).getBookName()+"</p><p class=\"infofont\">Price:"+books.get(k-1).getBookPrice() + "$</p></div>";
 					elements = elements+name;	
@@ -286,7 +286,7 @@
 				for (int i =0;i<3;i++)				
 				{
 					String URL = books.get(k-1).getBookImg();
-					String URLbox = 	"<a href=\"Book_Display_Servlet?"+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
+					String URLbox = 	"<a href=\"Book_Display_Servlet?name="+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
 					String elements = bar+URLbox;
 					String name = "<div style =\"text-align: center;\"class=\"namecontainer\"><p class=\"infofont\" style=\"font-size:17px\">"+ books.get(k-1).getBookName()+"</p><p class=\"infofont\">Price:"+books.get(k-1).getBookPrice() + "$</p></div>";
 					elements = elements+name;
@@ -300,7 +300,7 @@
 				for (int j =0;j<temp;j++)				
 				{
 					String URL = books.get(k-1).getBookImg();
-					String URLbox = 	"<a href=\"Book_Display_Servlet?"+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
+					String URLbox = 	"<a href=\"Book_Display_Servlet?name="+(String)books.get(k-1).getBookName()+"\"><div class=\"bookimagecontainer\" \"><img src=\""+URL+"\" style=\"height:100%;width:100%\">"+"</div></a>";
 					String elements = bar+URLbox;
 					String name = "<div style =\"text-align: center;\"class=\"namecontainer\"><p class=\"infofont\" style=\"font-size:17px\">"+ books.get(k-1).getBookName()+"</p><p class=\"infofont\">Price:"+books.get(k-1).getBookPrice() + "$</p></div>";
 					elements = elements+name;

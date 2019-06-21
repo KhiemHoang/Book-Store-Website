@@ -218,7 +218,7 @@ public class Book_DBUtil {
 	}
 	
 	//get All book infor
-	public List<Book> getAllInfor() throws Exception{
+	public List<Book> getAllInfor(String name) throws Exception{
 		List<Book> books = new ArrayList<>();
 		
 		Connection con = null;
@@ -229,7 +229,8 @@ public class Book_DBUtil {
 			con = dataSource.getConnection();
 			
 			String sql = "SELECT * FROM book_controlling.book"
-					+ " where book_controlling.book.BookID = 1"; //sql query
+					+ " where bookname = '"+name+"'"; //sql query
+			System.out.println(sql);
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			while(rss.next())

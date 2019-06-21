@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
 import model.*;
 import java.util.List;
 
@@ -40,9 +42,9 @@ public class categoryservlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String URL = request.getQueryString();
+			URL= java.net.URLDecoder.decode(URL, StandardCharsets.UTF_8.name());
 			String[] parts = URL.split("type=");
 			String part2 = parts[1]; 
-			System.out.println(part2);
 			listbook(request,response,part2);
 			listtype(request,response);
 			RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/BookTypeQuery.jsp");

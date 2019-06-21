@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
 
@@ -44,8 +45,13 @@ public class Book_Display_Servlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String URL = request.getQueryString();
+		URL= java.net.URLDecoder.decode(URL, StandardCharsets.UTF_8.name());
+		String[] parts = URL.split("name=");
+		String part2 = parts[1]; 
+		System.out.println(part2);
 		try {
-		getBookList(request, response);
+		getBookList(request, response, part2);
 		getBookAuthor(request, response);
 		getPublishInfor(request, response);
 		getCustomBookList(request, response);
@@ -62,9 +68,9 @@ public class Book_Display_Servlet extends HttpServlet {
 
 
 	//get Book List
-  	public void getBookList(HttpServletRequest request, HttpServletResponse response)
+  	public void getBookList(HttpServletRequest request, HttpServletResponse response,String name)
 			throws Exception {
-  		List<Book> books = bookDButil.getAllInfor();
+  		List<Book> books = bookDButil.getAllInfor(name);
   				
   		request.setAttribute("BOOK_LIST", books);
   	}

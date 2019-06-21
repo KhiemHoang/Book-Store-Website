@@ -18,6 +18,7 @@ public class forgotDAO {
 	}
 	public int Find(Users user)
 	{
+		int counter = 0;
 		
 		Connection myConn = null;
 		try
@@ -32,14 +33,15 @@ public class forgotDAO {
 		myRs = myStmt.executeQuery(Sql);
 		while (myRs.next())
 		{
-			System.out.println("FOUND");
-			return 1;
+			counter = myRs.getInt(1);
+			return counter;
+			
 		}	
 		}catch (Exception Exc)
 		{
 			Exc.printStackTrace();
 		}
-		System.out.println("NOT FOUND");
+		
 		return 0;
 		
 			

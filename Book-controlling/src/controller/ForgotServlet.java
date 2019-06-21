@@ -86,6 +86,8 @@ public class ForgotServlet extends HttpServlet {
 				out.println("swal ( 'USER NOT FOUND OR EMAIL ADDRESS IS INCORRECT' ,  'FAIL !' ,  'error' );");
 				out.println("});");
 				out.println("</script>");
+				RequestDispatcher rd = request.getRequestDispatcher("forgotpwd.jsp");
+				rd.include(request, response);
 			}
 			else
 			{
@@ -99,7 +101,7 @@ public class ForgotServlet extends HttpServlet {
 				
 				int randomPIN = (int)(Math.random()*9000)+1000;
 				request.setAttribute("code", randomPIN);
-				
+				request.setAttribute("username", username);
 				final String un = "tuanjggaa98@gmail.com";
 		        final String password = "tuan7777";
 

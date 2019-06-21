@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
@@ -55,7 +55,7 @@
             <p>Username</p>
             <input type="text" name="username" placeholder="Enter Username" required>
             <p>Email</p>
-            <input type="text" name="email" placeholder="Enter Username"  required>
+            <input type="text" name="email" placeholder="Enter Email"  required>
 
 
             <input type="submit"  value="Find Pwd">

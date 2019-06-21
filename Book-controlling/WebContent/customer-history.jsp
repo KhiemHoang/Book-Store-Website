@@ -26,6 +26,7 @@
 		<%
 		List<Users> users = (List<Users>)request.getAttribute("cus_infor");
 		List<Order_History> history = (List<Order_History>)request.getAttribute("history");
+		List<String> bname = (List<String>)request.getAttribute("bname");
 		%>
 	
 	</head>
@@ -153,7 +154,7 @@
 							{
 								out.println("<tr>");
 									out.println("<td class=\"td\" >" + (i+1) + "</td>");
-									out.println("<td class=\"td\" ><a href=\"\">Life of Pi</td>");
+									out.println("<td class=\"td\" ><a href=\"Online_Reading_Servlet?bookid="+history.get(i).getBookID() +"\">"+ bname.get(i)+"</td>");
 									out.println("<td class=\"td\" >2019-02-12</td>");
 									out.println("<td class=\"td\" >" + history.get(i).getOrderQuantity() + "</td>");
 									out.println("<td class=\"td\" >" + history.get(i).getOrderPrice() + "</td>");

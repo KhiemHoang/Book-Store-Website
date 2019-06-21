@@ -63,7 +63,7 @@
 									for ( counter=0;counter < hang;counter++)
 									{	
 										
-										out.println("<div class=\"row\"><a href=\"\" class=\"col-sm\">"+type.get(o)+"</a><a href=\"\" class=\"col-sm\">"+type.get(o+1)+"</a></div>");
+										out.println("<div class=\"row\"><a href=\"categoryservlet?type=" +type.get(o) +"\" class=\"col-sm\">"+type.get(o)+"</a><a href=\"categoryservlet?type=" +type.get(o+1)+"\" class=\"col-sm\">"+type.get(o+1)+"</a></div>");
 										o = o+2;
 										
 										
@@ -142,7 +142,9 @@
 								</div>
 								<div class="product-detail">
 									<p>Author: </p>
-									<a href="author.html"><%= authorname %></a>
+									<%
+										out.println("<a href=\"Author_Servlet?name="+authorname+"\">"+authorname+"</a>");
+									%>
 									<p>Release date: <%= publish.get(0).getRelease() %></p>
 								</div>
 							</div>

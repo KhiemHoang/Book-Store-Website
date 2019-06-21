@@ -19,7 +19,7 @@ public class Customer_DBUtil {
 	}
 	
 	//get User Information
-	public List<Users> getUserInfor() throws Exception{
+	public List<Users> getUserInfor(String name) throws Exception{
 		
 		List<Users> users = new ArrayList<>();
 		
@@ -31,7 +31,7 @@ public class Customer_DBUtil {
 			con = dataSource.getConnection();
 			
 			String sql = "SELECT * FROM book_controlling.users"
-					+ " where book_controlling.users.UserID =1;"; //sql query
+					+ " where book_controlling.users.Username ='"+name+"'";
 			stm = con.createStatement(); //create sql statement
 			rss = stm.executeQuery(sql); //exec query
 			while(rss.next())

@@ -34,7 +34,7 @@
 	<div id="content">
 			<div class="container">
 				<div class="read-pnl">
-					<embed src="Principles.of.Distributed.Database.Systems.3rd.Edition.Feb.2011.pdf" type="application/pdf"></embed>
+					<embed src="book1" type="application/pdf"></embed>
 				</div>
 				<div class="book-info">
 					<h1>Book Name</h1>

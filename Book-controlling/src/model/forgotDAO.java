@@ -22,7 +22,7 @@ public class forgotDAO {
 		Connection myConn = null;
 		try
 		{
-		myConn = dataSource.getConnection();
+		myConn = dataSource.getConnection();  
 		Statement myStmt = null;
 		ResultSet myRs = null;
 		myStmt = myConn.createStatement();

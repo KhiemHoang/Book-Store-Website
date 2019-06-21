@@ -38,9 +38,16 @@
 		<div id="header">
 			<div class="container">
 				<div class="row sign-up-bar">
-					<ul class="sign-up">						
-						<li><a href="">Login</a></li>
-						<li><a href="">Sign up</a></li>
+					<ul class="sign-up">		
+					<%
+						if(null == session.getAttribute("username")){
+							out.println("<li><a href=\"login.jsp\">Login</a></li>");
+							out.println("<li><a href=\"SignUp.jsp\">Login</a></li>");
+						}else{
+						  // User IS logged in.
+						}
+					%>				
+						
 					</ul>
 				</div>
 				<div class="row">

@@ -53,6 +53,7 @@ public class Book_Display_Servlet extends HttpServlet {
 		catch (Exception exec) {
 			exec.printStackTrace();
 		}	
+		
 	RequestDispatcher dispatcher = request.getRequestDispatcher("/book-display.jsp");
 	dispatcher.forward(request, response);
 	}

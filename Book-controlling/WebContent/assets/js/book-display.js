@@ -9,7 +9,7 @@ function imageZoom(imgs) {
 function show_cmt(){
 	var div = document.getElementById("new-cmt-pnl");
 
-	div.style.display = "block";
+	div.style.display = "block !important";
 }
 
 // //For slide show

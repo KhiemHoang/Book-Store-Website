@@ -245,7 +245,6 @@ public class Book_DBUtil {
 				String Book_Type = rss.getString("BookType");
 				int Book_Quantity = rss.getInt("BookQuantity");
 				
-				
 				Book tempAuthor = new Book(Book_SKU, Book_Name, Book_Price, Book_Quantity, Book_Size, Book_Type, Book_Img1, Book_Img2, Book_Img, Book_Link);
 				books.add(tempAuthor);
 			}

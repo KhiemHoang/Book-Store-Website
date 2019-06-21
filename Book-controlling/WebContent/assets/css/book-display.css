@@ -79,7 +79,7 @@ body{
 
 .product-cart{
 	border-left: 1px solid #C0C0C0;
-	padding: 0 !important;
+	padding: 0;
 }
 
 .product-cart .row{
@@ -135,8 +135,8 @@ body{
 
 
 .no-padding-right{
-	padding: 0 !important;
-	padding-left: 10px !important;
+	padding: 0;
+	padding-left: 10px;
 }
 
 .product-price{
@@ -176,8 +176,7 @@ body{
 
 .quantity-selector{
 	margin-right: 10px;
-	padding-right: 0 !important;
-	padding-left: 0 !important;
+	padding: 0;
 }
 
 .quantity-selector .input-form{	
@@ -802,13 +801,10 @@ body{
 
 /*=========<!-- End cmt-pnl -->===========*/
 
-form{
-	display: none;
-}
 
 .user-cmt{
 	width: 100%;
-	display: none;
+	display: none !important;
 	vertical-align: middle;
 	padding: 30 30;
 	padding-left: 70px;
@@ -821,9 +817,10 @@ form{
 }
 
 .cmt-box input{
+	border-radius: 5px;
 	background-color: transparent;
 	border: 1px solid #C0C0C0;
-	border-radius: 5px;
+	
 	font-size: 15px;
 	padding: 10px 0 10px 10px;
 }

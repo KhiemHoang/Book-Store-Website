@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
@@ -94,8 +95,10 @@ public class Book_Cmt_DBUtil {
 		}
 	}
 	
+	
+	//get Total Rate Score
 	public int getTotalRate(String name) throws Exception{
-		int total = new int();
+		int total = 0;
 		
 		Connection con = null;
 		Statement stm = null;
@@ -104,7 +107,7 @@ public class Book_Cmt_DBUtil {
 		try {
 			con = dataSource.getConnection();
 			
-			String sql = "SELECT * "
+			String sql = "SELECT sum(book_controlling.book_comment.RateScore) as Total "
 					+ "FROM book_controlling.book_comment, book_controlling.book"
 					+ " where book_controlling.book.bookid = book_controlling.book_comment.BookID"
 					+ " and book_controlling.book.BookName = '"+name+"'"; //sql query
@@ -113,17 +116,217 @@ public class Book_Cmt_DBUtil {
 			rss = stm.executeQuery(sql); //exec query
 			while(rss.next())
 			{
-				int ID = rss.getInt("UserID");
-				String Name = rss.getString("UserName");
-				String Img = rss.getString("UserImg");
-				
-				Users UserList = new Users(ID, Name, Img);
-				
-				users.add(UserList);
+				total = rss.getInt("Total");
 			}
 			
-			return users;
+			return total;
 		}
+		finally {
+			close(con, stm, rss);
+		}
+	}
+	
+	//Count 5 star
+	public int getTotalFive(String name) throws Exception{
+		int total = 0;
+		
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "SELECT count(book_controlling.book_comment.RateScore) as Five "
+					+ "FROM book_controlling.book_comment, book_controlling.book"
+					+ " where book_controlling.book.bookid = book_controlling.book_comment.BookID"
+					+ " and book_controlling.book_comment.RateScore = 5"
+					+ " and book_controlling.book.BookName = '"+name+"'"; //sql query
+			System.out.println(sql);
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
+			while(rss.next())
+			{
+				total = rss.getInt("Five");
+			}
+			
+			return total;
+		}
+		finally {
+			close(con, stm, rss);
+		}
+	}
+
+	//Count 4 star
+	public int getTotalFour(String name) throws Exception{
+			int total = 0;
+			
+			Connection con = null;
+			Statement stm = null;
+			ResultSet rss = null;
+			
+			try {
+				con = dataSource.getConnection();
+				
+				String sql = "SELECT count(book_controlling.book_comment.RateScore) as Four "
+						+ "FROM book_controlling.book_comment, book_controlling.book"
+						+ " where book_controlling.book.bookid = book_controlling.book_comment.BookID"
+						+ " and book_controlling.book_comment.RateScore = 4"
+						+ " and book_controlling.book.BookName = '"+name+"'"; //sql query
+				System.out.println(sql);
+				stm = con.createStatement(); //create sql statement
+				rss = stm.executeQuery(sql); //exec query
+				while(rss.next())
+				{
+					total = rss.getInt("Four");
+				}
+				
+				return total;
+			}
+			finally {
+				close(con, stm, rss);
+			}
+		}
+	
+		
+	//Count 3 star
+	public int getTotalThree(String name) throws Exception{
+					int total = 0;
+					
+					Connection con = null;
+					Statement stm = null;
+					ResultSet rss = null;
+					
+					try {
+						con = dataSource.getConnection();
+						
+						String sql = "SELECT count(book_controlling.book_comment.RateScore) as Three "
+								+ "FROM book_controlling.book_comment, book_controlling.book"
+								+ " where book_controlling.book.bookid = book_controlling.book_comment.BookID"
+								+ " and book_controlling.book_comment.RateScore = 3"
+								+ " and book_controlling.book.BookName = '"+name+"'"; //sql query
+						System.out.println(sql);
+						stm = con.createStatement(); //create sql statement
+						rss = stm.executeQuery(sql); //exec query
+						while(rss.next())
+						{
+							total = rss.getInt("Three");
+						}
+						
+						return total;
+					}
+					finally {
+						close(con, stm, rss);
+					}
+				}
+
+	//Count 2 star
+	public int getTotalTwo(String name) throws Exception{	
+		int total = 0;
+		
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "SELECT count(book_controlling.book_comment.RateScore) as Two "
+					+ "FROM book_controlling.book_comment, book_controlling.book"
+					+ " where book_controlling.book.bookid = book_controlling.book_comment.BookID"
+					+ " and book_controlling.book_comment.RateScore = 2"
+					+ " and book_controlling.book.BookName = '"+name+"'"; //sql query
+			System.out.println(sql);
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
+			while(rss.next())
+			{
+				total = rss.getInt("Two");
+			}
+			
+			return total;
+		}
+		finally {
+			close(con, stm, rss);
+		}
+	}
+	
+	//Count 1 star
+	public int getTotalOne(String name) throws Exception{	
+		int total = 0;
+		
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "SELECT count(book_controlling.book_comment.RateScore) as One "
+					+ "FROM book_controlling.book_comment, book_controlling.book"
+					+ " where book_controlling.book.bookid = book_controlling.book_comment.BookID"
+					+ " and book_controlling.book_comment.RateScore = 1"
+					+ " and book_controlling.book.BookName = '"+name+"'"; //sql query
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
+			while(rss.next())
+			{
+				total = rss.getInt("One");
+			}
+			
+			return total;
+		}
+		finally {
+			close(con, stm, rss);
+		}
+	}	
+	
+	//Update Like
+	public void updateLike(int CmtID) throws Exception{
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "Update book_controlling.book_comment"
+					+ " set book_controlling.book_comment.CmtLike = book_controlling.book_comment.CmtLike + 1"
+					+ " where book_controlling.book_comment.CmtID = " + CmtID + "";
+
+			stm = con.createStatement(); //create sql statement
+			rss = stm.executeQuery(sql); //exec query
+		}
+
+		finally {
+			close(con, stm, rss);
+		}
+	}
+	
+	//Add new Cmt
+	public boolean addCmt(Book_Cmt cmt) throws Exception{
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rss = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			String sql = "insert into book_comment values(?, ?, ?, ?, ?, ?)";
+			stm = con.prepareStatement(sql);
+			
+			((PreparedStatement) stm).setInt(1, cmt.getBookID());
+			((PreparedStatement) stm).setString(2, cmt.getCmtText());
+			((PreparedStatement) stm).setInt(3, cmt.getCmtLike());
+			((PreparedStatement) stm).setString(4, cmt.getCmtDate());
+			((PreparedStatement) stm).setInt(5, cmt.getCustomerID());
+			((PreparedStatement) stm).setInt(6, cmt.getRateScore());
+			
+
+			stm.executeQuery(sql);//exec query
+			return true;
+		}
+
 		finally {
 			close(con, stm, rss);
 		}

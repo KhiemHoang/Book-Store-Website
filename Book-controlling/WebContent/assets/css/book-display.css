@@ -639,7 +639,7 @@ body{
 	text-align: center;
 }
 
-.rate-score .product-status i{
+.rate-score .product-status .gold{
 	color: #DAA520;
 }
 
@@ -787,6 +787,17 @@ body{
 	color: #404040;
 }
 
+.cmt-option form{
+	margin-top:10px;
+}
+
+.cmt-option input{
+	background-color: #007bff;
+	padding: 0 10px;
+	color: white;
+	border: none;
+}
+
 .cmt-option i{
  	color: #007bff;
  	font-size: 13px;
@@ -804,7 +815,7 @@ body{
 
 .user-cmt{
 	width: 100%;
-	display: none !important;
+	display: none;
 	vertical-align: middle;
 	padding: 30 30;
 	padding-left: 70px;
